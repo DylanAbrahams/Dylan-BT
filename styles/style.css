@@ -1,0 +1,22 @@
+html{
+    --primary-color: #ffc917;
+    --secundary-color: #003082;
+    --certiary-color: #e6e6e9;
+    --background-color: white;
+    --link-color: #0063d3;
+    --warning-color: #e2103d;
+    --text-color: #070721;
+}
+
+form{
+    width:60vw;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.warning {
+    color: var(--warning-color);
+    
+}

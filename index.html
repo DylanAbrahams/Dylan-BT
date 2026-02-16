@@ -1,20 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browsing Technologies</title>
     <link rel="stylesheet" href="styles/style.css">
-    
+
 </head>
+
 <body>
     <header></header>
     <main>
-        <h1>Hallo iedereen</h1>
+        <h1>Aangifte 2025 Erfbelasting</h1>
+        <p class="warning">Dit gaat om een schoolproject!</p>
+        <form>
+            <!-- 1 -->
+            <fieldset>
+                <legend>Gegevens van de overledene</legend>
+
+                <!-- 1a -->
+                <fieldset>
+                    <legend>Gegevens van de overledene</legend>
+                    <fieldset>
+                        <legend>Vul hier de gegevens in van de overledene.
+                        </legend>
+                        <label>
+                            Voorletters
+                            <input required type="text" name="deceased-initals">
+                        </label>
+                        <label>
+                            Tussenvoegsel
+                            <input type="text" name="deceased-infix">
+                        </label>
+                        <label>
+                            Achternaam
+                            <input required type="text" name="deceased-last-name">
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Bsn overledene</legend>
+                        <input required type="text" name="deceased-bsn" pattern="\d{9}" maxlength="9">
+                        <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern -->
+                    </fieldset>
+                    <fieldset>
+                        <legend>Overlijdingsdatum</legend>
+                        <input required type="date" name="date-of-passing">
+                    </fieldset>
+                </fieldset>
+
+                <!-- 1b -->
+                <fieldset>
+                    <legend>Partner Overledene</legend>
+                    <fieldset>
+                        <legend>Was de overledene getrouwd of had de overledene een
+                            geregistreerde partner op het moment van overlijden?</legend>
+                        <label>
+                            Nee
+                            <input required type="radio" name="married" value="no">
+                        </label>
+                        <label>
+                            Ja
+                            <input required type="radio" name="married" value="yes">
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Hadden de overledene en diens echtgenoot of
+                            geregistreerde partner huwelijkse of partnerschapsvoorwaarden laten vastleggen in een
+                            notariële
+                            akte?</legend>
+                        <label>
+                            Nee
+                            <input type="radio" name="marrage-recorded" value="no">
+                        </label>
+                        <label>
+                            Ja
+                            <input type="radio" name="marrage-recorded" value="yes">
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Hadden de overledene en diens partner een finaal
+                            verrekenbeding?</legend>
+                        <label>
+                            Nee
+                            <input type="radio" name="settlement-clause" value="no">
+                        </label>
+                        <label>
+                            Ja
+                            <input type="radio" name="settlement-clause" value="yes">
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
+                        <label>
+                            <input type="date" name="date-marrage">
+                        </label>
+                    </fieldset>
+                </fieldset>
+                <!-- 1c -->
+                <fieldset>
+                    <legend>Kinderen Overledene</legend>
+                    <fieldset>
+                        <legend>Had de overledene kinderen?</legend>
+                        <label>
+                            Nee
+                            <input required type="radio" name="children" value="no">
+                        </label>
+                        <label>
+                            Ja
+                            <input required type="radio" name="children" value="yes">
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Is 1 van deze kinderen eerder overleden dan de
+                            overledene voor wie u nu aangifte doet?
+                        </legend>
+                        <label>
+                            Nee
+                            <input type="radio" name="children-deceased" value="no">
+                        </label>
+                        <label>
+                            Ja
+                            <input type="radio" name="children-deceased" value="yes">
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Had dit overleden kind zelf kinderen?</legend>
+                        <label>
+                            Nee
+                            <input type="radio" name="deceased-child-had-children" value="no">
+                        </label>
+                        <label>
+                            Ja
+                            <input type="radio" name="deceased-child-had-children" value="yes">
+                        </label>
+                    </fieldset>
+                </fieldset>
+
+                <!-- 1d -->
+
+                <fieldset>
+                    <legend>Testament</legend>
+                    <fieldset>
+                        <legend>Had de overledene een testament?</legend>
+                        <label>
+                            Nee
+                            <input required type="radio" name="had-will" value="no">
+                        </label>
+                        <label>
+                            Ja
+                            <input required type="radio" name="had-will" value="yes">
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Vul de gegevens in van de notaris die het testament heeft opgemaakt en de
+                            datum van het testament.
+                        </legend>
+                        <fieldset>
+                            <legend>Protocolnummer notaris</legend>
+                            <input required type="text" name="protocol-number" pattern="\d{6}">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Vul hier de gegevens in van de notaris.
+                            </legend>
+                            <label>
+                                Voorletters
+                                <input required type="text" name="notary-initals">
+                            </label>
+                            <label>
+                                Tussenvoegsel
+                                <input type="text" name="notary-infix">
+                            </label>
+                            <label>
+                                Achternaam
+                                <input required type="text" name="notary-last-name">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Vestigingsplaats</legend>
+                            <input required type="text" name="place-of-business">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Datum van het testament of van de laatste wijziging</legend>
+                            <input required type="date" name="date-of-will">
+                        </fieldset>
+
+                    </fieldset>
+                </fieldset>
+            </fieldset>
+            <!-- 4 -->
+            <fieldset>
+                <legend>Gegevens verkrijgers</legend>
+                <!-- 4a -->
+                <fieldset>
+                    <legend>Vul de gegevens in van de persoon of instelling</legend>
+                    <fieldset>
+                        <legend>Gegevens persoon</legend>
+                        <label>
+                            Bsn persoon
+                            <input type="text" name="beneficiary-bsn" pattern="\d{9}" maxlength="9">
+                        </label>
+                        <label>
+                            Voorletters
+                            <input type="text" name="beneficiary-initials">
+                        </label>
+                        <label>
+                            Voorletters
+                            <input type="text" name="beneficiary-infix">
+                        </label>
+                        <label>
+                            Achternaam
+                            <input type="text" name="beneficiary-last-name">
+                        </label>
+                        <label>
+                            Geboortedatum
+                            <input type="date" name="beneficiary-date-of-birth">
+                        </label>
+                    </fieldset>
+                    fieldset>
+                        <legend>Gegevens instelling</legend>
+                        <label>
+                            RSIN instelling
+                            <input type="text" name="rsin-designation" pattern="\d{9}" maxlength="9">
+                        </label>
+                        <label>
+                            Naam instelling
+                            <input type="text" name="name-designation">
+                        </label>
+                    </fieldset>
+                </fieldset>
+                <!-- 4b -->
+                <fieldset>
+                    <legend>Adresgegevens</legend>
+                </fieldset>
+                <!-- 4c -->
+                <fieldset>
+                    <legend>Relatie met de overledene</legend>
+                </fieldset>
+                <!-- 4d -->
+                <fieldset>
+                    <legend>Erfdelen, legaten en legitieme portie</legend>
+                </fieldset>
+                <!-- 4e -->
+                <fieldset>
+                    <legend>Erfdelen, legaten en legitieme portie (Vervolg)</legend>
+                </fieldset>
+                <!-- 4f -->
+                <fieldset>
+                    <legend>Inbreng van een schenking in de nalatenschap</legend>
+                </fieldset>
+                <!-- 4g -->
+                <fieldset>
+                    <legend>Ondertekening door de verkrijger. Als de executeur of de gemachtigde aangifte doet, hoeft de
+                        verkrijger niet zelf te ondertekenen. </legend>
+                </fieldset>
+
+
+            </fieldset>
+            <button type="submit">Verzenden</button>
+
+        </form>
     </main>
     <footer>
-        
+
     </footer>
     <script src="scripts/script.js"></script>
 </body>
+
 </html>
