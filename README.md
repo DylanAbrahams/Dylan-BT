@@ -67,4 +67,36 @@ Soms komen icoontjes te staan voor de tekst, maar soms schuift te tekst mee naar
 
 Pijltje links/rechts (lijkt op NS logo) wordt in 1 afbeelding VIER keer gebruilkt.
 
-Conclusie: Icoontjes toevoegen aan elke menu item is geen goed idee, je kunt het niet goed doen. Maar! Je hoeft geen zorgen te maken dat het slechter gaat dan bij APple
+Conclusie: Icoontjes toevoegen aan elke menu item is geen goed idee, je kunt het niet goed doen. Maar! Je hoeft geen zorgen te maken dat het slechter gaat dan bij Apple.
+
+## Dag 2
+### Werkzaamheden
+Vandaag zijn we begonnen met het bespreken van het artikel van gisteren. We hadden klassikaal met Wooclap een aantal vragen beantwoord over het artikel. Wat opvallend was, is dat het niet echt over de inhoud ging, meer over de metadata en de achtergrond van de schrijver. Daarna hebben we de inhoud nog verder besproken.
+
+Ik ben voor mijn project bezig geweest om alle basis HTML af te ronden. Mijn HTML voor onderdeel 4 is nu ook af. Ik moet nog wel logica gaan toevoegen dat je voor meerdere erfgenames kan invullen.
+
+Verder ben ik wat bezig geweest met styling. Ik vind de gele NS kleur belachelijk lelijk dus ik ga niet de hele form/pagina geel maken. Ik heb voor nu alleen de header geel. Verder heb ik de form achtergrond wit met alles eromheen grijs. Ook heb ik de blauwe knop van NS nagemaakt met de hover state animatie.
+
+Ook heb ik met een script gemaakt (met behulp van W3Schools) wat er voor zorgt dat ik maar 1 onderdeel van het form tegelijk hoef te laten zien. Alle onderdelen hebben dezelfde class (.tab) en degene die zichtbaar is krijgt .active erbij. Ook heb ik een Volgende/Vorige knop en heb ik op de laatste pagina een submit knop. Daarnaast heb ik nog een paginering die laat zien op welke pagina je bent.
+
+### Checkout met 
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Bronnenlijst
+
+Mozilla Patterns - 
+Link: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern
+
+W3Schools - 
+Link: https://www.w3schools.com/howto/howto_js_form_steps.asp
