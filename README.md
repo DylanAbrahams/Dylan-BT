@@ -1,7 +1,13 @@
 # Dylan-BT
 
 ## Dag 1
+### Werkzaamheden
+Vandaag zijn we begonnen met Browsing Technologies. We waren begonnen met een kick-off over het vak. Ik was wel 20m te laat vanwege het klote OV.. Na de uitleg over forms en wat we moeten den was ik begonnen met het project.
 
+Vandaag ben ik vooral bezig geweest met de HTML van de form. Iedereen moet minimaal 2 onderdelen namaken, waarvan onderdeel #1 er 1 van is. Verder heb ik onderdeel #4 gekozen, want die leek mij wel uitdagend want op het papieren formulier heb je 4 versies voor 4 personen maar digitaal kun je automatisch meer laten genereren. Ik heb momenteel alles van onderdeel 1 in HTML en een klein stuk van onderdeel 4. Verder heb ik de kleuren van de NS website in de root van mijn CSS gezet.
+
+### Checkout met Aya A
+Ik had vandaag mijn checkout met Aya. Zij heeft haar HTML van onderdeel 1 af. We hebben nog met elkaar besproken hoe je handig fieldsets, legends en labels kan inzetten. Verder heeft zij laten zien hoe zij een datum picker heeft gemaakt waar je dag, maand en jaar kan invoeren en ik heb haar laten zien hoe ik mijn radio buttons heb ingesteld. 
 
 ### Weekly Geek 1 - It’s hard to justify Tahoe icons
 Dit zijn mijn aantekeningen van het eerste artikel voor weekly geeks.
