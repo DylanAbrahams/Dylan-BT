@@ -10,633 +10,635 @@
 </head>
 
 <body>
-    <header></header>
-    <main>
-        <h1>Aangifte 2025 Erfbelasting</h1>
+    <header>
+        <h1>Aangifte 2026 Erfbelasting</h1>
         <p class="warning">Dit gaat om een schoolproject!</p>
-        <form>
-            <!-- 1 -->
-            <fieldset>
+    </header>
+    <main>
+        <form id="erfbelastingForm">
+
+            <!-- 1a -->
+            <fieldset class="tab">
                 <legend>Gegevens van de overledene</legend>
-
-                <!-- 1a -->
                 <fieldset>
-                    <legend>Gegevens van de overledene</legend>
-                    <fieldset>
-                        <legend>Vul hier de gegevens in van de overledene.
-                        </legend>
-                        <label>
-                            Voorletters
-                            <input type="text" name="deceased-initals">
-                        </label>
-                        <label>
-                            Tussenvoegsel
-                            <input type="text" name="deceased-infix">
-                        </label>
-                        <label>
-                            Achternaam
-                            <input type="text" name="deceased-last-name">
-                        </label>
-                    </fieldset>
+                    <legend>Vul hier de gegevens in van de overledene.
+                    </legend>
+                    <label>
+                        Voorletters
+                        <input type="text" name="deceased-initals">
+                    </label>
+                    <label>
+                        Tussenvoegsel
+                        <input type="text" name="deceased-infix">
+                    </label>
+                    <label>
+                        Achternaam
+                        <input type="text" name="deceased-last-name">
+                    </label>
+                </fieldset>
 
-                    <fieldset>
-                        <legend>Bsn overledene</legend>
-                        <input type="text" name="deceased-bsn" pattern="\d{9}" maxlength="9">
-                        <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern -->
-                    </fieldset>
+                <fieldset>
+                    <legend>Bsn overledene</legend>
+                    <input type="text" name="deceased-bsn" pattern="\d{9}" maxlength="9">
+                    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern -->
+                </fieldset>
 
-                    <!-- <fieldset>
+                <!-- <fieldset>
                         <legend>Overlijdingsdatum</legend>
                         <input type="date" name="date-of-passing">
                     </fieldset> -->
-                    <fieldset>
-                        <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
-
-                        <label>Dag
-                            <input type="number" name="date-of-passing" min="1" max="31" placeholder="DD">
-                        </label>
-                        <label>Maand
-                            <input type="number" name="month-of-passing" min="1" max="12" placeholder="MM">
-                        </label>
-                        <label>Jaar
-                            <input type="number" name="year-of-passing" placeholder="JJJJ">
-                        </label>
-                        <!-- Met hulp van Aya A -->
-
-                    </fieldset>
-                </fieldset>
-
-                <!-- 1b -->
                 <fieldset>
-                    <legend>Partner Overledene</legend>
-                    <fieldset>
-                        <legend>Was de overledene getrouwd of had de overledene een
-                            geregistreerde partner op het moment van overlijden?</legend>
-                        <label>
-                            <input type="radio" name="married" value="no">
-                            Nee
-                        </label>
-                        <label>
-                            <input type="radio" name="married" value="yes">
-                            Ja
-                        </label>
-                    </fieldset>
+                    <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
 
-                    <fieldset>
-                        <legend>Hadden de overledene en diens echtgenoot of
-                            geregistreerde partner huwelijkse of partnerschapsvoorwaarden laten vastleggen in een
-                            notariële
-                            akte?</legend>
-                        <label>
-                            <input type="radio" name="marrage-recorded" value="no">
-                            Nee
-                        </label>
-                        <label>
-                            <input type="radio" name="marrage-recorded" value="yes">
-                            Ja
-                        </label>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Hadden de overledene en diens partner een finaal
-                            verrekenbeding?</legend>
-                        <label>
-                            <input type="radio" name="settlement-clause" value="no">
-                            Nee
-                        </label>
-                        <label>
-                            <input type="radio" name="settlement-clause" value="yes">
-                            Ja
-                        </label>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
-                        <label>
-                            <input type="date" name="date-marrage">
-                        </label>
-                    </fieldset>
-                </fieldset>
-
-                <!-- 1c -->
-                <fieldset>
-                    <legend>Kinderen Overledene</legend>
-                    <fieldset>
-                        <legend>Had de overledene kinderen?</legend>
-                        <label>
-                            <input type="radio" name="children" value="no">
-                            Nee
-                        </label>
-                        <label>
-                            <input type="radio" name="children" value="yes">
-                            Ja
-                        </label>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Is 1 van deze kinderen eerder overleden dan de
-                            overledene voor wie u nu aangifte doet?
-                        </legend>
-                        <label>
-                            <input type="radio" name="children-deceased" value="no">
-                            Nee
-                        </label>
-                        <label>
-                            <input type="radio" name="children-deceased" value="yes">
-                            Ja
-                        </label>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Had dit overleden kind zelf kinderen?</legend>
-                        <label>
-                            <input type="radio" name="deceased-child-had-children" value="no">
-                            Nee
-                        </label>
-                        <label>
-                            <input type="radio" name="deceased-child-had-children" value="yes">
-                            Ja
-                        </label>
-                    </fieldset>
-                </fieldset>
-
-                <!-- 1d -->
-                <fieldset>
-                    <legend>Testament</legend>
-                    <fieldset>
-                        <legend>Had de overledene een testament?</legend>
-                        <label>
-                            <input type="radio" name="had-will" value="no">
-                            Nee
-                        </label>
-                        <label>
-                            <input type="radio" name="had-will" value="yes">
-                            Ja
-                        </label>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Vul de gegevens in van de notaris die het testament heeft opgemaakt en de
-                            datum van het testament.</legend>
-                        <fieldset>
-                            <legend>Protocolnummer notaris</legend>
-                            <input type="text" name="protocol-number" pattern="\d{6}">
-                        </fieldset>
-                        <fieldset>
-                            <legend>Vul hier de gegevens in van de notaris.
-                            </legend>
-                            <label>
-                                Voorletters
-                                <input type="text" name="notary-initals">
-                            </label>
-                            <label>
-                                Tussenvoegsel
-                                <input type="text" name="notary-infix">
-                            </label>
-                            <label>
-                                Achternaam
-                                <input type="text" name="notary-last-name">
-                            </label>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Vestigingsplaats</legend>
-                            <input type="text" name="place-of-business">
-                        </fieldset>
-                        <fieldset>
-                            <legend>Datum van het testament of van de laatste wijziging</legend>
-                            <input type="date" name="date-of-will">
-                        </fieldset>
-                    </fieldset>
+                    <label>Dag
+                        <input type="number" name="date-of-passing" min="1" max="31" placeholder="DD">
+                    </label>
+                    <label>Maand
+                        <input type="number" name="month-of-passing" min="1" max="12" placeholder="MM">
+                    </label>
+                    <label>Jaar
+                        <input type="number" name="year-of-passing" placeholder="JJJJ">
+                    </label>
+                    <!-- Met hulp van Aya A -->
 
                 </fieldset>
             </fieldset>
 
-            <!-- 4 -->
-            <fieldset>
-                <legend>Gegevens verkrijgers</legend>
-                <!-- 4a -->
+            <!-- 1b -->
+            <fieldset class="tab">
+                <legend>Partner Overledene</legend>
                 <fieldset>
-                    <legend>Vul de gegevens in van de persoon of instelling</legend>
+                    <legend>Was de overledene getrouwd of had de overledene een
+                        geregistreerde partner op het moment van overlijden?</legend>
+                    <label>
+                        <input type="radio" name="married" value="no">
+                        Nee
+                    </label>
+                    <label>
+                        <input type="radio" name="married" value="yes">
+                        Ja
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Hadden de overledene en diens echtgenoot of
+                        geregistreerde partner huwelijkse of partnerschapsvoorwaarden laten vastleggen in een
+                        notariële
+                        akte?</legend>
+                    <label>
+                        <input type="radio" name="marrage-recorded" value="no">
+                        Nee
+                    </label>
+                    <label>
+                        <input type="radio" name="marrage-recorded" value="yes">
+                        Ja
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Hadden de overledene en diens partner een finaal
+                        verrekenbeding?</legend>
+                    <label>
+                        <input type="radio" name="settlement-clause" value="no">
+                        Nee
+                    </label>
+                    <label>
+                        <input type="radio" name="settlement-clause" value="yes">
+                        Ja
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
+                    <label>
+                        <input type="date" name="date-marrage">
+                    </label>
+                </fieldset>
+            </fieldset>
+
+            <!-- 1c -->
+            <fieldset class="tab">
+                <legend>Kinderen Overledene</legend>
+                <fieldset>
+                    <legend>Had de overledene kinderen?</legend>
+                    <label>
+                        <input type="radio" name="children" value="no">
+                        Nee
+                    </label>
+                    <label>
+                        <input type="radio" name="children" value="yes">
+                        Ja
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Is 1 van deze kinderen eerder overleden dan de
+                        overledene voor wie u nu aangifte doet?
+                    </legend>
+                    <label>
+                        <input type="radio" name="children-deceased" value="no">
+                        Nee
+                    </label>
+                    <label>
+                        <input type="radio" name="children-deceased" value="yes">
+                        Ja
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Had dit overleden kind zelf kinderen?</legend>
+                    <label>
+                        <input type="radio" name="deceased-child-had-children" value="no">
+                        Nee
+                    </label>
+                    <label>
+                        <input type="radio" name="deceased-child-had-children" value="yes">
+                        Ja
+                    </label>
+                </fieldset>
+            </fieldset>
+
+            <!-- 1d -->
+            <fieldset class="tab">
+                <legend>Testament</legend>
+                <fieldset>
+                    <legend>Had de overledene een testament?</legend>
+                    <label>
+                        <input type="radio" name="had-will" value="no">
+                        Nee
+                    </label>
+                    <label>
+                        <input type="radio" name="had-will" value="yes">
+                        Ja
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Vul de gegevens in van de notaris die het testament heeft opgemaakt en de
+                        datum van het testament.</legend>
                     <fieldset>
-                        <legend>Gegevens persoon</legend>
-                        <label>
-                            Bsn persoon
-                            <input type="text" name="beneficiary-bsn" pattern="\d{9}" maxlength="9">
-                        </label>
-                        <label>
-                            Voorletters
-                            <input type="text" name="beneficiary-initials">
-                        </label>
+                        <legend>Protocolnummer notaris</legend>
+                        <input type="text" name="protocol-number" pattern="\d{6}">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Vul hier de gegevens in van de notaris.
+                        </legend>
                         <label>
                             Voorletters
-                            <input type="text" name="beneficiary-infix">
+                            <input type="text" name="notary-initals">
+                        </label>
+                        <label>
+                            Tussenvoegsel
+                            <input type="text" name="notary-infix">
                         </label>
                         <label>
                             Achternaam
-                            <input type="text" name="beneficiary-last-name">
-                        </label>
-                        <label>
-                            Geboortedatum
-                            <input type="date" name="beneficiary-date-of-birth">
+                            <input type="text" name="notary-last-name">
                         </label>
                     </fieldset>
-
                     <fieldset>
-                        <legend>Gegevens instelling</legend>
-                        <label>
-                            RSIN instelling
-                            <input type="text" name="rsin-designation" pattern="\d{9}" maxlength="9">
-                        </label>
-                        <label>
-                            Naam instelling
-                            <input type="text" name="name-designation">
-                        </label>
+                        <legend>Vestigingsplaats</legend>
+                        <input type="text" name="place-of-business">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Datum van het testament of van de laatste wijziging</legend>
+                        <input type="date" name="date-of-will">
                     </fieldset>
                 </fieldset>
 
-                <!-- 4b -->
+            </fieldset>
+
+
+
+
+            <!-- 4a -->
+            <fieldset class="tab">
+                <legend>Gegevens verkrijgers - Vul de gegevens in van de persoon of instelling</legend>
                 <fieldset>
-                    <legend>Adresgegevens</legend>
-                    <fieldset>
-                        <legend>Adres in Nederland</legend>
-                        <label>
-                            Straat
-                            <input type="text" name="beneficiary-street">
-                        </label>
-                        <label>
-                            Huisnummer
-                            <input type="text" name="beneficiary-streetnumber" pattern="\d{3}" maxlength="3">
-                        </label>
-                        <label>
-                            Toevoeging
-                            <input type="text" name="beneficiary-add-ons">
-                        </label>
-                        <label>
-                            Postcode
-                            <input type="text" name="beneficiary-zip-code">
-                        </label>
-                        <label>
-                            Woonplaats
-                            <input type="text" name="beneficiary-residence">
-                        </label>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Adres in het buitenland</legend>
-                        <label>
-                            Straat
-                            <input type="text" name="beneficiary-street-abroad">
-                        </label>
-                        <label>
-                            Huisnummer
-                            <input type="text" name="beneficiary-streetnumber-abroad" pattern="\d{3}" maxlength="3">
-                        </label>
-                        <label>
-                            Postcode
-                            <input type="text" name="beneficiary-zip-code-abroad">
-                        </label>
-                        <label>
-                            Woonplaats
-                            <input type="text" name="beneficiary-residence-abroad">
-                        </label>
-                        <label>
-                            Landcode
-                            <input type="number" name="beneficiary-country-code">
-                        </label>
-                    </fieldset>
+                    <legend>Gegevens persoon</legend>
+                    <label>
+                        Bsn persoon
+                        <input type="text" name="beneficiary-bsn" pattern="\d{9}" maxlength="9">
+                    </label>
+                    <label>
+                        Voorletters
+                        <input type="text" name="beneficiary-initials">
+                    </label>
+                    <label>
+                        Voorletters
+                        <input type="text" name="beneficiary-infix">
+                    </label>
+                    <label>
+                        Achternaam
+                        <input type="text" name="beneficiary-last-name">
+                    </label>
+                    <label>
+                        Geboortedatum
+                        <input type="date" name="beneficiary-date-of-birth">
+                    </label>
                 </fieldset>
 
-                <!-- 4c -->
                 <fieldset>
-                    <legend>Relatie met de overledene</legend>
-                    <p>Wat is de relatie van deze verkrijger met de overledene?</p>
-
+                    <legend>Gegevens instelling</legend>
                     <label>
-                        <input type="radio" name="relationship-deceased" value="partner">
-                        Echtgenoot of geregistreerde partner
+                        RSIN instelling
+                        <input type="text" name="rsin-designation" pattern="\d{9}" maxlength="9">
                     </label>
-
                     <label>
-                        <input type="radio" name="relationship-deceased" value="cohabiting-partner-with-agreement">
-                        Samenwoner zonder notariële akte
+                        Naam instelling
+                        <input type="text" name="name-designation">
                     </label>
+                </fieldset>
+            </fieldset>
+
+            <!-- 4b -->
+            <fieldset class="tab">
+                <legend>Adresgegevens</legend>
+                <fieldset>
+                    <legend>Adres in Nederland</legend>
+                    <label>
+                        Straat
+                        <input type="text" name="beneficiary-street">
+                    </label>
+                    <label>
+                        Huisnummer
+                        <input type="text" name="beneficiary-streetnumber" pattern="\d{3}" maxlength="3">
+                    </label>
+                    <label>
+                        Toevoeging
+                        <input type="text" name="beneficiary-add-ons">
+                    </label>
+                    <label>
+                        Postcode
+                        <input type="text" name="beneficiary-zip-code">
+                    </label>
+                    <label>
+                        Woonplaats
+                        <input type="text" name="beneficiary-residence">
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Adres in het buitenland</legend>
+                    <label>
+                        Straat
+                        <input type="text" name="beneficiary-street-abroad">
+                    </label>
+                    <label>
+                        Huisnummer
+                        <input type="text" name="beneficiary-streetnumber-abroad" pattern="\d{3}" maxlength="3">
+                    </label>
+                    <label>
+                        Postcode
+                        <input type="text" name="beneficiary-zip-code-abroad">
+                    </label>
+                    <label>
+                        Woonplaats
+                        <input type="text" name="beneficiary-residence-abroad">
+                    </label>
+                    <label>
+                        Landcode
+                        <input type="number" name="beneficiary-country-code">
+                    </label>
+                </fieldset>
+            </fieldset>
+
+            <!-- 4c -->
+            <fieldset class="tab">
+                <legend>Relatie met de overledene</legend>
+                <p>Wat is de relatie van deze verkrijger met de overledene?</p>
+
+                <label>
+                    <input type="radio" name="relationship-deceased" value="partner">
+                    Echtgenoot of geregistreerde partner
+                </label>
+
+                <label>
+                    <input type="radio" name="relationship-deceased" value="cohabiting-partner-with-agreement">
+                    Samenwoner zonder notariële akte
+                </label>
+
+                <fieldset>
+                    <legend>Stonden de verkrijger en de overledene tot de
+                        overlijdensdatum minstens 5 jaar op hetzelfde adres
+                        ingeschreven in de Basisregistratie Personen (BRP) of
+                        een vergelijkbare administratie buiten Nederland?</legend>
+                    <label>
+                        <input type="radio" name="same-address-for-5-years" value="no">
+                        Nee
+                    </label>
+                    <label>
+                        <input type="radio" name="same-address-for-5-years" value="yes">
+                        Ja
+                    </label>
+                </fieldset>
+
+                <label>
+                    <input type="radio" name="relationship-deceased" value="cohabiting-partner-without-agreement">
+                    Samenwoner met notariële akte
+                </label>
+
+                <fieldset>
+                    <legend>Is het samenlevingscontract minstens 6 maanden
+                        voor het overlijden opgesteld?</legend>
+                    <label>
+                        <input type="radio" name="cohabitation-contract-6-months" value="no">
+                        Nee
+                    </label>
+                    <label>
+                        <input type="radio" name="cohabitation-contract-6-months" value="yes">
+                        Ja
+                    </label>
+                    <label>
+                        Datum notariële samenlevingsovereenkoms
+                        <input type="date" name="cohabitation-agreement">
+                    </label>
+                </fieldset>
+
+                <label>
+                    <input type="radio" name="relationship-deceased" value="parent">
+                    Ouder
+                </label>
+
+                <label>
+                    <input type="radio" name="relationship-deceased" value="ex-partner">
+                    Ex-Partner (als er bij de echtscheiding afspraken zijn gemaakt over de erfenis)
+                </label>
+
+                <label>
+                    <input type="radio" name="relationship-deceased" value="child-or-child-in-law">
+                    Kind of stiefkind
+                </label>
+
+                <label>
+                    <input type="radio" name="relationship-deceased" value="child-with-handicap">
+                    Kind met handicap
+                    <em><strong>Let op!</strong> Kruis dit hokje alleen aan als het kind voldoet aan de voorwaarden
+                        voor een speciale vrijstelling. Zie de begrippenlijst in onderdeel D van de
+                        toelichting.</em>
+                </label>
+
+                <label>
+                    <input type="radio" name="relationship-deceased" value="foster-child">
+                    Pleegkind
+                </label>
+
+                <label>
+                    <input type="radio" name="relationship-deceased" value="grandchild">
+                    Kleinkind
+                </label>
+
+                <label>
+                    <input type="radio" name="relationship-deceased" value="great-grandchild">
+                    Achterkleinkind
+                </label>
+
+                <label>
+                    <input type="radio" name="relationship-deceased" value="anbi">
+                    Algemeen nut beogende instelling (ANBI)
+                </label>
+
+                <label>
+                    <input type="radio" name="relationship-deceased" value="ssbi">
+                    Sociaal belang behartigende instelling (SBBI)
+                </label>
+
+                <label>
+                    <input type="radio" name="relationship-deceased" value="other">
+                    Anders
+                </label>
+            </fieldset>
+
+            <!-- 4d -->
+            <fieldset class="tab">
+                <legend>Erfdelen, legaten en legitieme portie</legend>
+                <fieldset>
+                    <legend>Wat is het erfdeel van deze verkrijger? Geef het erfdeel op als breuk, bijvoorbeeld 1/4,
+                        of als percentage. Krijgt deze verkrijger alleen een legaat of doet deze verkrijger een
+                        beroep op diens legitieme portie? Vul dan 0/1 in.
+                    </legend>
+                    <label>
+                        <input type="radio" name="inheritance-share" value="fraction">
+                        Breuk
+                    </label>
+                    <fieldset>
+                        <legend>Breuk</legend>
+                        <label>
+                            <input type="number" name="fraction-inheritance">
+                        </label>
+                        <label>
+                            /
+                            <input type="number" name="total-fraction-inheritance">
+                        </label>
+                    </fieldset>
+                    <label>
+                        <input type="radio" name="inheritance-share" value="percentage">
+                        Percentage
+                    </label>
+                    <fieldset>
+                        <legend>Percentage</legend>
+                        <label>
+                            <input type="number" name="percentage-inheritance">
+                        </label>
+                        <label>
+                            ,
+                            <input type="number" name="total-percentage-inheritance">
+                        </label>
+                    </fieldset>
 
                     <fieldset>
-                        <legend>Stonden de verkrijger en de overledene tot de
-                            overlijdensdatum minstens 5 jaar op hetzelfde adres
-                            ingeschreven in de Basisregistratie Personen (BRP) of
-                            een vergelijkbare administratie buiten Nederland?</legend>
+                        <legend>Doet deze verkrijger een beroep op diens legitieme portie?</legend>
                         <label>
-                            <input type="radio" name="same-address-for-5-years" value="no">
+                            <input type="radio" name="forced-share" value="no">
                             Nee
                         </label>
                         <label>
-                            <input type="radio" name="same-address-for-5-years" value="yes">
+                            <input type="radio" name="forced-share" value="yes">
                             Ja
                         </label>
+                        <fieldset>
+                            <legend>Waarde van de legitieme portie</legend>
+                            <label>
+                                <input type="number" name="forced-share-worth">
+                            </label>
+                        </fieldset>
                     </fieldset>
 
-                    <label>
-                        <input type="radio" name="relationship-deceased" value="cohabiting-partner-without-agreement">
-                        Samenwoner met notariële akte
-                    </label>
-
                     <fieldset>
-                        <legend>Is het samenlevingscontract minstens 6 maanden
-                            voor het overlijden opgesteld?</legend>
+                        <legend>Is er sprake van vruchtgebruik?</legend>
                         <label>
-                            <input type="radio" name="cohabitation-contract-6-months" value="no">
+                            <input type="radio" name="usufruct" value="no">
                             Nee
                         </label>
                         <label>
-                            <input type="radio" name="cohabitation-contract-6-months" value="yes">
+                            <input type="radio" name="usufruct" value="yes">
                             Ja
                         </label>
-                        <label>
-                            Datum notariële samenlevingsovereenkoms
-                            <input type="date" name="cohabitation-agreement">
-                        </label>
+                        <fieldset>
+                            <legend>Vraagt de partner van de overledene of iemand anders die het vruchtgebruik van
+                                de woning krijgt om uitstel van betaling? <em><strong>Let op:</strong> Bij uitstel
+                                    betaalt u wel invorderingsrente.</em></legend>
+                            <label>
+                                <input type="radio" name="usufruct-postponement" value="no">
+                                Nee
+                            </label>
+                            <label>
+                                <input type="radio" name="usufruct-postponement" value="yes">
+                                Ja
+                            </label>
+                            <label>
+                                Waarde van het vruchtgebruik
+                                <input type="number" name="forced-share-worth">
+                            </label>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Heeft deze verkrijger een partner die ook een erfdeel of een legaat van de
+                                overledene krijgt?</legend>
+                            <label>
+                                <input type="radio" name="usufruct-partner" value="no">
+                                Nee
+                            </label>
+                            <label>
+                                <input type="radio" name="usufruct-partner" value="yes">
+                                Ja
+                            </label>
+                            <fieldset>
+                                <legend>Partner</legend>
+                                <label>
+                                    Naam van de partner
+                                    <input type="text" name="usufruct-partner-name">
+                                </label>
+                                <label>
+                                    Naam van de partner
+                                    <input type="text" name="usufruct-partner-bsn">
+                                </label>
+                            </fieldset>
+                        </fieldset>
                     </fieldset>
 
-                    <label>
-                        <input type="radio" name="relationship-deceased" value="parent">
-                        Ouder
-                    </label>
-
-                    <label>
-                        <input type="radio" name="relationship-deceased" value="ex-partner">
-                        Ex-Partner (als er bij de echtscheiding afspraken zijn gemaakt over de erfenis)
-                    </label>
-
-                    <label>
-                        <input type="radio" name="relationship-deceased" value="child-or-child-in-law">
-                        Kind of stiefkind
-                    </label>
-
-                    <label>
-                        <input type="radio" name="relationship-deceased" value="child-with-handicap">
-                        Kind met handicap
-                        <em><strong>Let op!</strong> Kruis dit hokje alleen aan als het kind voldoet aan de voorwaarden
-                            voor een speciale vrijstelling. Zie de begrippenlijst in onderdeel D van de
-                            toelichting.</em>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="relationship-deceased" value="foster-child">
-                        Pleegkind
-                    </label>
-
-                    <label>
-                        <input type="radio" name="relationship-deceased" value="grandchild">
-                        Kleinkind
-                    </label>
-
-                    <label>
-                        <input type="radio" name="relationship-deceased" value="great-grandchild">
-                        Achterkleinkind
-                    </label>
-
-                    <label>
-                        <input type="radio" name="relationship-deceased" value="anbi">
-                        Algemeen nut beogende instelling (ANBI)
-                    </label>
-
-                    <label>
-                        <input type="radio" name="relationship-deceased" value="ssbi">
-                        Sociaal belang behartigende instelling (SBBI)
-                    </label>
-
-                    <label>
-                        <input type="radio" name="relationship-deceased" value="other">
-                        Anders
-                    </label>
+                    <fieldset>
+                        <legend>Is er sprake van een tweetrapstestament waarin deze verkrijger staat vermeld als
+                            bezwaarde? Dit heet ook wel tweetrapsmaking of fideïcommis.</legend>
+                        <label>
+                            <input type="radio" name="double-will" value="no">
+                            Nee
+                        </label>
+                        <label>
+                            <input type="radio" name="double-will" value="yes">
+                            Ja
+                        </label>
+                    </fieldset>
                 </fieldset>
+            </fieldset>
 
-                <!-- 4d -->
+            <!-- 4e -->
+            <fieldset class="tab">
+                <legend>Erfdelen, legaten en legitieme portie (Vervolg)</legend>
                 <fieldset>
-                    <legend>Erfdelen, legaten en legitieme portie</legend>
+                    <legend>Krijgt deze verkrijger 1 of meer legaten van de overledene? <em>Denk ook aan een
+                            aanvullend legaat voor de langstlevende partner. Er bestaan 'legaten vrij van recht'
+                            en
+                            'legaten niet vrij van recht'. Een verkrijger kan beide krijgen.</em></legend>
+                    <label>
+                        <input type="radio" name="legacies" value="no">
+                        Nee
+                    </label>
+                    <label>
+                        <input type="radio" name="legacies" value="yes">
+                        Ja
+                    </label>
+
                     <fieldset>
-                        <legend>Wat is het erfdeel van deze verkrijger? Geef het erfdeel op als breuk, bijvoorbeeld 1/4,
-                            of als percentage. Krijgt deze verkrijger alleen een legaat of doet deze verkrijger een
-                            beroep op diens legitieme portie? Vul dan 0/1 in.
-                        </legend>
+                        <legend>Specificatie legaat 1</legend>
                         <label>
-                            <input type="radio" name="inheritance-share" value="fraction">
-                            Breuk
+                            Omschrijving van het legaat
+                            <input type="text" name="legacy-description">
                         </label>
-                        <fieldset>
-                            <legend>Breuk</legend>
-                            <label>
-                                <input type="number" name="fraction-inheritance">
-                            </label>
-                            <label>
-                                /
-                                <input type="number" name="total-fraction-inheritance">
-                            </label>
-                        </fieldset>
                         <label>
-                            <input type="radio" name="inheritance-share" value="percentage">
-                            Percentage
+                            Waarde van het legaat
+                            <input type="text" name="legacy-worth">
                         </label>
-                        <fieldset>
-                            <legend>Percentage</legend>
-                            <label>
-                                <input type="number" name="percentage-inheritance">
-                            </label>
-                            <label>
-                                ,
-                                <input type="number" name="total-percentage-inheritance">
-                            </label>
-                        </fieldset>
 
                         <fieldset>
-                            <legend>Doet deze verkrijger een beroep op diens legitieme portie?</legend>
+                            <legend>Komt dit legaat ten laste van een andere verkrijger?</legend>
                             <label>
-                                <input type="radio" name="forced-share" value="no">
+                                <input type="radio" name="legacy-other-beneficiary" value="no">
                                 Nee
                             </label>
                             <label>
-                                <input type="radio" name="forced-share" value="yes">
+                                <input type="radio" name="legacy-other-beneficiary" value="yes">
                                 Ja
                             </label>
                             <fieldset>
-                                <legend>Waarde van de legitieme portie</legend>
-                                <label>
-                                    <input type="number" name="forced-share-worth">
-                                </label>
+                                <legend>Bsn andere verkrijger</legend>
+                                <input type="text" name="legacy-other-beneficiary-bsn" pattern="\d{9}" maxlength="9">
                             </fieldset>
                         </fieldset>
 
                         <fieldset>
-                            <legend>Is er sprake van vruchtgebruik?</legend>
+                            <legend>Is dit legaat vrij van recht?</legend>
                             <label>
-                                <input type="radio" name="usufruct" value="no">
+                                <input type="radio" name="legacy-free-of-right" value="no">
                                 Nee
                             </label>
                             <label>
-                                <input type="radio" name="usufruct" value="yes">
+                                <input type="radio" name="legacy-free-of-right" value="yes">
                                 Ja
                             </label>
-                            <fieldset>
-                                <legend>Vraagt de partner van de overledene of iemand anders die het vruchtgebruik van
-                                    de woning krijgt om uitstel van betaling? <em><strong>Let op:</strong> Bij uitstel
-                                        betaalt u wel invorderingsrente.</em></legend>
-                                <label>
-                                    <input type="radio" name="usufruct-postponement" value="no">
-                                    Nee
-                                </label>
-                                <label>
-                                    <input type="radio" name="usufruct-postponement" value="yes">
-                                    Ja
-                                </label>
-                                <label>
-                                    Waarde van het vruchtgebruik
-                                    <input type="number" name="forced-share-worth">
-                                </label>
-                            </fieldset>
-
-                            <fieldset>
-                                <legend>Heeft deze verkrijger een partner die ook een erfdeel of een legaat van de
-                                    overledene krijgt?</legend>
-                                <label>
-                                    <input type="radio" name="usufruct-partner" value="no">
-                                    Nee
-                                </label>
-                                <label>
-                                    <input type="radio" name="usufruct-partner" value="yes">
-                                    Ja
-                                </label>
-                                <fieldset>
-                                    <legend>Partner</legend>
-                                    <label>
-                                        Naam van de partner
-                                        <input type="text" name="usufruct-partner-name">
-                                    </label>
-                                    <label>
-                                        Naam van de partner
-                                        <input type="text" name="usufruct-partner-bsn">
-                                    </label>
-                                </fieldset>
-                            </fieldset>
                         </fieldset>
 
                         <fieldset>
-                            <legend>Is er sprake van een tweetrapstestament waarin deze verkrijger staat vermeld als
-                                bezwaarde? Dit heet ook wel tweetrapsmaking of fideïcommis.</legend>
+                            <legend>Is dit legaat aanvaard?</legend>
                             <label>
-                                <input type="radio" name="double-will" value="no">
+                                <input type="radio" name="legacy-accepted" value="no">
                                 Nee
                             </label>
                             <label>
-                                <input type="radio" name="double-will" value="yes">
+                                <input type="radio" name="legacy-accepted" value="yes">
                                 Ja
                             </label>
                         </fieldset>
                     </fieldset>
-
-                    <!-- 4e -->
-                    <fieldset>
-                        <legend>Erfdelen, legaten en legitieme portie (Vervolg)</legend>
-                        <fieldset>
-                            <legend>Krijgt deze verkrijger 1 of meer legaten van de overledene? <em>Denk ook aan een
-                                    aanvullend legaat voor de langstlevende partner. Er bestaan 'legaten vrij van recht'
-                                    en
-                                    'legaten niet vrij van recht'. Een verkrijger kan beide krijgen.</em></legend>
-                            <label>
-                                <input type="radio" name="legacies" value="no">
-                                Nee
-                            </label>
-                            <label>
-                                <input type="radio" name="legacies" value="yes">
-                                Ja
-                            </label>
-
-                            <fieldset>
-                                <legend>Specificatie legaat 1</legend>
-                                <label>
-                                    Omschrijving van het legaat
-                                    <input type="text" name="legacy-description">
-                                </label>
-                                <label>
-                                    Waarde van het legaat
-                                    <input type="text" name="legacy-worth">
-                                </label>
-
-                                <fieldset>
-                                    <legend>Komt dit legaat ten laste van een andere verkrijger?</legend>
-                                    <label>
-                                        <input type="radio" name="legacy-other-beneficiary" value="no">
-                                        Nee
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="legacy-other-beneficiary" value="yes">
-                                        Ja
-                                    </label>
-                                    <fieldset>
-                                        <legend>Bsn andere verkrijger</legend>
-                                        <input type="text" name="legacy-other-beneficiary-bsn" pattern="\d{9}"
-                                            maxlength="9">
-                                    </fieldset>
-                                </fieldset>
-
-                                <fieldset>
-                                    <legend>Is dit legaat vrij van recht?</legend>
-                                    <label>
-                                        <input type="radio" name="legacy-free-of-right" value="no">
-                                        Nee
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="legacy-free-of-right" value="yes">
-                                        Ja
-                                    </label>
-                                </fieldset>
-
-                                <fieldset>
-                                    <legend>Is dit legaat aanvaard?</legend>
-                                    <label>
-                                        <input type="radio" name="legacy-accepted" value="no">
-                                        Nee
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="legacy-accepted" value="yes">
-                                        Ja
-                                    </label>
-                                </fieldset>
-                            </fieldset>
-                        </fieldset>
-                    </fieldset>
-
-                    <!-- 4f -->
-                    <fieldset>
-                        <legend>Inbreng van een schenking in de nalatenschap</legend>
-                        <label>
-                            Omschrijving van de inbreng.
-                            <input type="text" name="collation-description">
-                        </label>
-                        <label>
-                            Waarde van de inbreng.
-                            <input type="number" name="collation-worth">
-                        </label>
-                    </fieldset>
-
-                    <!-- 4g -->
-                    <fieldset>
-                        <legend>Ondertekening door de verkrijger. Als de executeur of de gemachtigde aangifte doet,
-                            hoeft de verkrijger niet zelf te ondertekenen. </legend>
-                        <label>
-                            Datum
-                            <input type="date" name="signing-date-beneficiary">
-                        </label>
-                        <label>
-                            Handtekening
-                            <input type="file" name="signature-beneficiary">
-                        </label>
-                    </fieldset>
-
-
                 </fieldset>
-                <button type="submit">Verzenden</button>
+            </fieldset>
+
+            <!-- 4f -->
+            <fieldset class="tab">
+                <legend>Inbreng van een schenking in de nalatenschap</legend>
+                <label>
+                    Omschrijving van de inbreng.
+                    <input type="text" name="collation-description">
+                </label>
+                <label>
+                    Waarde van de inbreng.
+                    <input type="number" name="collation-worth">
+                </label>
+            </fieldset>
+
+            <!-- 4g -->
+            <fieldset class="tab">
+                <legend>Ondertekening door de verkrijger. Als de executeur of de gemachtigde aangifte doet,
+                    hoeft de verkrijger niet zelf te ondertekenen. </legend>
+                <label>
+                    Datum
+                    <input type="date" name="signing-date-beneficiary">
+                </label>
+                <label>
+                    Handtekening
+                    <input type="file" name="signature-beneficiary">
+                </label>
+            </fieldset>
+
+
+
+            <div class="button-row">
+                <p class="paginator">Pagina X/X</p>
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+            </div>
 
         </form>
+
     </main>
     <footer>
 

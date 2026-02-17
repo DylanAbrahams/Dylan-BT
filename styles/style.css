@@ -1,27 +1,93 @@
-html{
+html {
+    --font-family: Segoe UI, Verdana, sans-serif;
+
     --primary-color: #ffc917;
-    --secundary-color: #003082;
+    --o-color: #003082;
     --certiary-color: #e6e6e9;
-    --background-color: white;
+    --white-color: white;
     --link-color: #0063d3;
     --warning-color: #e2103d;
     --text-color: #070721;
 }
 
-form{
-    width:60vw;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+body {
+    font-family: var(--font-family);
+    margin:0;
+    padding:0;
+    background-color: var(--certiary-color)
 }
 
-fieldset{
+header {
+    background-color: var(--primary-color);
+    padding:.5em;
+    margin-bottom:2em;
+}
+
+
+
+form {
+    width: 80vw;
+    max-width: 60em;
+    /* display:flex;
+    flex-direction:column; */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding:2em;
+    background-color: var(--white-color);
+}
+
+
+fieldset {
     display: flex;
     flex-direction: column;
 }
 
+input[type="text"] {
+    padding: 10px;
+
+    font-size: 1em;
+    border: 1px solid #aaaaaa;
+}
+
+.tab {
+    display: none;
+    flex-direction: column;
+    height:60vh;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+
+.tab.active {
+    display: flex;
+}
+
+.button-row{
+    display:flex;
+    justify-content:flex-end;
+    width:100%;
+}
+
+button {
+    background-color: var(--link-color);
+    border: none;
+    border-radius: 4px;
+    box-shadow: inset 0 -.125rem 0 var(--secondary-color);
+    color: var(--white-color);
+    font-size: 1em;
+    min-width: 8em;
+    padding: 1em 2em;
+    margin:.5em;
+    transition: box-shadow .15s ease-in-out;
+}
+
+button:hover{
+    box-shadow: inset 0 -3.125rem 0 var(--o-color);
+}
+
+
+
+
 .warning {
     color: var(--warning-color);
-
 }
