@@ -16,7 +16,12 @@ form{
     align-items:center;
 }
 
+fieldset{
+    display: flex;
+    flex-direction: column;
+}
+
 .warning {
     color: var(--warning-color);
-    
+
 }
