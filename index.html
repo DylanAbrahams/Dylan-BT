@@ -44,9 +44,25 @@
                         <input type="text" name="deceased-bsn" pattern="\d{9}" maxlength="9">
                         <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern -->
                     </fieldset>
-                    <fieldset>
+
+                    <!-- <fieldset>
                         <legend>Overlijdingsdatum</legend>
                         <input type="date" name="date-of-passing">
+                    </fieldset> -->
+                    <fieldset>
+                        <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
+
+                        <label>Dag
+                            <input type="number" name="date-of-passing" min="1" max="31" placeholder="DD">
+                        </label>
+                        <label>Maand
+                            <input type="number" name="month-of-passing" min="1" max="12" placeholder="MM">
+                        </label>
+                        <label>Jaar
+                            <input type="number" name="year-of-passing" placeholder="JJJJ">
+                        </label>
+                        <!-- Met hulp van Aya A -->
+
                     </fieldset>
                 </fieldset>
 
@@ -224,7 +240,7 @@
                             <input type="date" name="beneficiary-date-of-birth">
                         </label>
                     </fieldset>
-                    
+
                     <fieldset>
                         <legend>Gegevens instelling</legend>
                         <label>
