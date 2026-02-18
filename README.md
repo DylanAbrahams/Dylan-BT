@@ -79,7 +79,8 @@ Verder ben ik wat bezig geweest met styling. Ik vind de gele NS kleur belachelij
 
 Ook heb ik met een script gemaakt (met behulp van W3Schools) wat er voor zorgt dat ik maar 1 onderdeel van het form tegelijk hoef te laten zien. Alle onderdelen hebben dezelfde class (.tab) en degene die zichtbaar is krijgt .active erbij. Ook heb ik een Volgende/Vorige knop en heb ik op de laatste pagina een submit knop. Daarnaast heb ik nog een paginering die laat zien op welke pagina je bent.
 
-### Checkout met 
+### Checkout met Iris
+Zij heeft al veel styling en vragen die pas zichtbaar worden wanneer je ja/nee selecteerd (volledig met css)
 
 
 
