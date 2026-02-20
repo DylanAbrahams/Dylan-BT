@@ -1,6 +1,6 @@
 # Dylan-BT
 
-## Dag 1
+## Dag 1 (16 januari)
 ### Werkzaamheden
 Vandaag zijn we begonnen met Browsing Technologies. We waren begonnen met een kick-off over het vak. Ik was wel 20m te laat vanwege het klote OV.. Na de uitleg over forms en wat we moeten den was ik begonnen met het project.
 
@@ -69,7 +69,7 @@ Pijltje links/rechts (lijkt op NS logo) wordt in 1 afbeelding VIER keer gebruilk
 
 Conclusie: Icoontjes toevoegen aan elke menu item is geen goed idee, je kunt het niet goed doen. Maar! Je hoeft geen zorgen te maken dat het slechter gaat dan bij Apple.
 
-## Dag 2
+## Dag 2 (17 januari)
 ### Werkzaamheden
 Vandaag zijn we begonnen met het bespreken van het artikel van gisteren. We hadden klassikaal met Wooclap een aantal vragen beantwoord over het artikel. Wat opvallend was, is dat het niet echt over de inhoud ging, meer over de metadata en de achtergrond van de schrijver. Daarna hebben we de inhoud nog verder besproken.
 
@@ -80,15 +80,22 @@ Verder ben ik wat bezig geweest met styling. Ik vind de gele NS kleur belachelij
 Ook heb ik met een script gemaakt (met behulp van W3Schools) wat er voor zorgt dat ik maar 1 onderdeel van het form tegelijk hoef te laten zien. Alle onderdelen hebben dezelfde class (.tab) en degene die zichtbaar is krijgt .active erbij. Ook heb ik een Volgende/Vorige knop en heb ik op de laatste pagina een submit knop. Daarnaast heb ik nog een paginering die laat zien op welke pagina je bent.
 
 ### Checkout met Iris
-Zij heeft al veel styling en vragen die pas zichtbaar worden wanneer je ja/nee selecteerd (volledig met css)
+Ik kwam gerandomized met Aya A, maar zij was er niet. Ik ben uiteindelijk samen gekomen met Iris. Zij heeft in haar project al veel styling en ze heeft vragen die pas zichtbaar worden wanneer je ja/nee selecteerd (volledig met css gedaan). Ik had zelf mijn paginering laten zien dmv "tab" classes en hoe ik door alle paginas heen kan gaan.
+
+## Week 1 Overzicht
+Deze week zijn we begonnen met de opdracht
 
 
+<img src="img/readme-img/html-form-1.png" alt="Afbeelding van mijn form zonder CSS #1" height=400>
 
 
+<img src="img/readme-img/html-form-2.png" alt="Afbeelding van mijn form zonder CSS #2" height=400>
 
 
+<img src="img/readme-img/week1-styling.png" alt="Afbeelding van mijn styling week 1 desktop" height=400>
 
 
+<img src="img/readme-img/week1-styling-mobile.png" alt="Afbeelding van mijn styling week 1 mobiel" height=400>
 
 
 
