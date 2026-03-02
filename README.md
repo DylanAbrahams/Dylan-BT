@@ -98,7 +98,7 @@ Deze week zijn we begonnen met de opdracht
 <img src="img/readme-img/week1-styling-mobile.png" alt="Afbeelding van mijn styling week 1 mobiel" height=400>
 
 Gesprek met groepje + Vasilis
-Pattern = Je klikt op nee en er komen een paar vragen uit
+Voorbeeld Pattern = Je klikt op nee en er komen een paar vragen uit
 
 Inert in cSS
 niet mee kunnen interacteren
@@ -117,7 +117,45 @@ je kan input[type="text"] gebruiken
 https://tractie.ns.nl/2e23992f3/p/226ce1-tractie--ns-design-system
 
 ## Dag 3 (2 maart)
+### Werkzaamheden
 We zijn vandaag begonnen met wat uitleg over validatie. Ik heb er wat van opgestoken. Ik deel mijn formulier op in verschillende tabs. Ik heb met JavaScript geprogrammeerd dat het de huidige tab (het fieldset die nu zichtbaar is) gevalideerd wordt wanneer je naar de volgende pagina gaat. Ik vond alleen wel dat het irritant is dat je alles MOET invullen  voordat je naar de rest kan kijken. Ik heb een popup toegevoegd waarin de gebruiker te weten komt dat niet alles correct is ingevuld maar wel door mag naar de volgende vraag.
+
+Verder heb ik vandaag de feedback van de vrijdag voor het reces toegepast over Progressive Enhancement. Alle tabs zijn nu standaard zichtbaar en krijgen nu een  .inactive class als ze niet de huidige tab zijn. Als je de pagina nu bekijkt zonder JavaScript zou je nog steeds alle vragen kunnen invullen. Helaas is het nog niet perfect want je kan nog maar voor 1 erfgename invullen. Misschien moet ik het standaard 4 maken? Daarnaast hebben alle tabs een standaard grootte waardoor je in elke individuele tab moet scrollen.
+
+Daarnaast heb ik wat extra tabs toegevoegd om de gebruiker te informeren. Op het begin staat een introductie, als je dan op volgende drukt kun je beginnen met invullen. Daarnaast heb ik halverwege nog een tab. Daar kun je het aantal erfgenamen invullen. Momenteel is het een number input met een knop om de formulieren te generenen. Dit kan nog wel beter. Ik ga dit mengen met de Volgende knop. Daarnaast ga ik er waarschijnlijk +/- knoppen van maken.
+
+Ik was lang bezig met het laten genereren van nieuwe fieldsets in de form. Wat ik uiteindelijk heb gedaan is een <template> om alle fieldsets heen zetten die meerdere keren worden ingevuld. Toen dit eenmaal werkte heb ik aan het einde van het formulier een bedank tabje toegevoegd en daarna zie je een overzicht van de namen van de overledene en de erfgenamen.
+
+
+### Weekly Geek 2 - UX van HTML
+Om 15.00 ben ik nog bezig geweest met de Weekly Geek. We moeten artikelen lezen over html attributen maken met alleen divs, CSS en JS. Ik zit in groepje 5 en houd me bezig met de checkbox en de radiobutton + bijbehorende labels. Ik heb me in wat bronnen verdiept. 
+
+The Checkbox Role
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role
+Dit artikel gaat over checkboxes maken met een span. Met HTML maak je een [] en stel je aria-checked in. Met CSS vul je een gecheckte versie [x] en een lege versie []in en maak je een focus state. Vervolgens met JavaScript zorg je er met spatie voor dat aria-checked op true/false gezet wordt.
+
+The Radio Role
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role
+Het principe voor radios is in principe hetzelfde als voor de checkboxes maar iets complexer. Met radio buttons kun je maar 1 van X aantal selecteren. Verder kun je ze met de pijltoetsen bedienen. 
+
+input type="checkbox"
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/checkbox
+Dit artikel gaat over de standaard checkboxes in de form inputs. Deze kun je activeren en deactiveren. De value van een checkbox is altijd on/off. Als je meerdere checkboxes hebt met je er wel voor zorgen dat ze allemaal een andere ID hebben. Verder moeten ze allemaal een label hebben en worden ze vaak gegroepeerd met fieldsets. Ook zit er default styling op van een blauwe checkmark.
+
+
+input type="radio"
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/radio
+Een radio button zit meestal in een groep met meerdere radios. Het is dan de bedoeling dat je 1 van X aantal radio buttons selecteerd. In code moeten de radios dan dezelfde naam hebben, maar wel een unieke value. De value is het antwoord van de gebruiker. Net als checkboxes hebben de radios ook een label om aan de gebruiker te laten zien waar ze voor staan.
+
+The Label element
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label
+Labels zijn essentieel voor radio buttons en checkboxes. Zonder labels zou je niet weten waar een individuele button/checkbox over gaat. In de code kun je de buttons ook in de labels plaatsen, wat ervoor zorgt dat als je op de label klikt, de radio button ook (de)activeert. Verder staat in het artikel om links buiten de labels te houden zodat ze daar buiten kunnen interacteren. Daarnaast moet je geen headings als labels gebruiken. Losse tekst in een label is prima. Je kunt labels ook verbinden met ID, maar ik ben zelf meer een voorstander van inputs plaatsen binnen de label, dan weet je dat het goed zit.
+
+Uiteindelijk heb ik wat ideeen opgedaan over hoe je radios/checkboxes kunt maken met HTML en JS. Je kunt met JavaScript togglen tussen de states die je nodig hebt en met HTML kun je vierkantjes of cirkeltjes maken die je met CSS kan stylen. Wel zat ik te denken: een checkbox is gewoon een boolean. In JavaScript is een boolean een element die aan/uit kan zijn (true/false). In principe zou je dit dan op HTML elementen toe kunnen passen. Dit ga ik morgen proberen.
+
+
+### Checkout met ???
+
 
 ## Bronnenlijst
 
@@ -129,3 +167,18 @@ Link: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pat
 
 W3Schools - 
 Link: https://www.w3schools.com/howto/howto_js_form_steps.asp
+
+The Checkbox Role -
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role
+
+The Radio Role - 
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role
+
+input type="checkbox" -
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/checkbox
+
+input type="radio" -
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/radio
+
+The Label element
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label
