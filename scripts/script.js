@@ -1,26 +1,34 @@
 // Deze code is gebaseerd op code van W3Schools
 // Link: https://www.w3schools.com/howto/howto_js_form_steps.asp
 
-
-var currentTab = 0; // Current tab is set to the first tab
+let currentTab = 0;
 showTab(currentTab);
 
 function showTab(n) {
-  var tabs = document.getElementsByClassName("tab");
+  const tabs = document.getElementsByClassName("tab");
 
-  // Remove "active" from all tabs
   for (var i = 0; i < tabs.length; i++) {
-    tabs[i].classList.remove("active");
+    // Verwijder alle classes die we gaan beheren
+    tabs[i].classList.remove("active", "inactive");
+
+    // Voeg inactive toe aan alle tabs behalve de huidige
+    if (i !== n) {
+      tabs[i].classList.add("inactive");
+    }
   }
 
-  // Add "active" to the current tab
+  // Voeg active toe aan de huidige tab
   tabs[n].classList.add("active");
 
-  // Previous/Next buttons
-  document.getElementById("prevBtn").style.display = n === 0 ? "none" : "inline";
-  document.getElementById("nextBtn").innerHTML = (n === tabs.length - 1) ? "Submit" : "Next";
+  // Vorige knop tonen/verbergen
+  document.getElementById("prevBtn").style.display =
+    n === 0 ? "none" : "inline";
 
-  // Update paginator
+  // Tekst van volgende knop aanpassen
+  document.getElementById("nextBtn").innerHTML =
+    (n === tabs.length - 1) ? "Verzenden" : "Volgende";
+
+  // Paginator bijwerken
   var paginator = document.querySelector(".paginator");
   if (paginator) {
     paginator.textContent = `Pagina ${n + 1}/${tabs.length}`;
@@ -29,8 +37,37 @@ function showTab(n) {
 
 function nextPrev(n) {
   var tabs = document.getElementsByClassName("tab");
+  var currentFieldset = tabs[currentTab];
+  var inputs = currentFieldset.querySelectorAll("input, select, textarea");
+
+  var isValid = true;
+  for (var i = 0; i < inputs.length; i++) {
+    if (!inputs[i].checkValidity()) {
+      isValid = false;
+      break;
+    }
+  }
+
+  if (n === 1 && !isValid) {
+    if (currentTab === tabs.length - 1) {
+      // Laatste tab → verplicht alles invullen
+      currentFieldset.reportValidity();
+      return false;
+    } else {
+      // Andere tabs → custom popup met optie toch doorgaan
+      showValidationPopup();
+      return;
+    }
+  }
+
+  changeTab(n);
+}
+
+function changeTab(n) {
+  var tabs = document.getElementsByClassName("tab");
 
   currentTab += n;
+
   if (currentTab < 0) currentTab = 0;
 
   if (currentTab >= tabs.length) {
@@ -40,3 +77,31 @@ function nextPrev(n) {
 
   showTab(currentTab);
 }
+
+/* =========================
+   POPUP FUNCTIES
+========================= */
+
+function showValidationPopup() {
+  document.getElementById("validationModal").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("validationModal").style.display = "none";
+}
+
+function proceedAnyway() {
+  document.getElementById("validationModal").style.display = "none";
+  changeTab(1);
+}
+
+/* =========================
+   CLICK OUTSIDE MODAL HANDLING
+========================= */
+
+var modal = document.getElementById("validationModal");
+window.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    closePopup(); // Sluit popup, blijft op huidige tab
+  }
+});

@@ -1,6 +1,6 @@
 # Dylan-BT
 
-## Dag 1 (16 januari)
+## Dag 1 (16 februari)
 ### Werkzaamheden
 Vandaag zijn we begonnen met Browsing Technologies. We waren begonnen met een kick-off over het vak. Ik was wel 20m te laat vanwege het klote OV.. Na de uitleg over forms en wat we moeten den was ik begonnen met het project.
 
@@ -69,7 +69,7 @@ Pijltje links/rechts (lijkt op NS logo) wordt in 1 afbeelding VIER keer gebruilk
 
 Conclusie: Icoontjes toevoegen aan elke menu item is geen goed idee, je kunt het niet goed doen. Maar! Je hoeft geen zorgen te maken dat het slechter gaat dan bij Apple.
 
-## Dag 2 (17 januari)
+## Dag 2 (17 februari)
 ### Werkzaamheden
 Vandaag zijn we begonnen met het bespreken van het artikel van gisteren. We hadden klassikaal met Wooclap een aantal vragen beantwoord over het artikel. Wat opvallend was, is dat het niet echt over de inhoud ging, meer over de metadata en de achtergrond van de schrijver. Daarna hebben we de inhoud nog verder besproken.
 
@@ -97,11 +97,32 @@ Deze week zijn we begonnen met de opdracht
 
 <img src="img/readme-img/week1-styling-mobile.png" alt="Afbeelding van mijn styling week 1 mobiel" height=400>
 
+Gesprek met groepje + Vasilis
+Pattern = Je klikt op nee en er komen een paar vragen uit
 
+Inert in cSS
+niet mee kunnen interacteren
+CSS: interactivity:inert;
 
+Door gaan naar volgende pagina zou KUNNEN met css-only
 
+Als JS niet werkt, moet het ook kunnen werken (default tabs zichtbaar maken)
+
+Fieldset zonder legens is geen fieldset, doe dan maar div
+
+Matthew had knoppen voor zijn radio buttons (knoppen met tekst erin)
+
+je kan input[type="text"] gebruiken 
+
+https://tractie.ns.nl/2e23992f3/p/226ce1-tractie--ns-design-system
+
+## Dag 3 (2 maart)
+We zijn vandaag begonnen met wat uitleg over validatie. Ik heb er wat van opgestoken. Ik deel mijn formulier op in verschillende tabs. Ik heb met JavaScript geprogrammeerd dat het de huidige tab (het fieldset die nu zichtbaar is) gevalideerd wordt wanneer je naar de volgende pagina gaat. Ik vond alleen wel dat het irritant is dat je alles MOET invullen  voordat je naar de rest kan kijken. Ik heb een popup toegevoegd waarin de gebruiker te weten komt dat niet alles correct is ingevuld maar wel door mag naar de volgende vraag.
 
 ## Bronnenlijst
+
+NS Tractie - 
+Link: https://tractie.ns.nl/2e23992f3/p/226ce1-tractie--ns-design-system
 
 Mozilla Patterns - 
 Link: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern
