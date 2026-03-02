@@ -682,15 +682,13 @@
         </div>
 
         <div id="summaryModal" class="modal">
-            <div class="modal-content">
-                <h2>Overzicht</h2>
-                <ul id="beneficiaries-list"></ul>
-                <div class="modal-buttons">
-                    <button type="button" onclick="closeSummary()">Sluiten</button>
-                    <button type="button" onclick="submitForm()">Verzenden</button>
-                </div>
-            </div>
-        </div>
+    <div class="modal-content">
+        <span class="close" onclick="closeSummary()">&times;</span>
+        <h2>Overzicht erfgenamen</h2>
+        <div id="beneficiaries-list"></div>
+        <button type="button" onclick="submitForm()">Formulier verzenden</button>
+    </div>
+</div>
 
 
 

@@ -72,7 +72,7 @@ function changeTab(n) {
 
   if (currentTab >= tabs.length) {
     showBeneficiariesSummary();
-    return false;
+    return;
   }
 
   showTab(currentTab);
