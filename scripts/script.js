@@ -71,7 +71,7 @@ function changeTab(n) {
   if (currentTab < 0) currentTab = 0;
 
   if (currentTab >= tabs.length) {
-    document.getElementById("erfbelastingForm").submit();
+    showBeneficiariesSummary();
     return false;
   }
 
@@ -146,3 +146,95 @@ document.getElementById("generate-beneficiaries").addEventListener("click", func
     currentTab = Array.from(document.getElementsByClassName("tab")).indexOf(firstTab);
     showTab(currentTab);
 });
+
+document.getElementById("generate-beneficiaries").addEventListener("click", function() {
+    const num = parseInt(document.getElementById("num-beneficiaries").value);
+    const container = document.getElementById("beneficiaries-container");
+
+    // Eerst verwijderen wat er al stond
+    container.innerHTML = "";
+
+    const template = document.getElementById("beneficiary-template");
+
+    for (let i = 1; i <= num; i++) {
+        const clone = template.content.cloneNode(true);
+
+        // Wrap alle tabs van deze erfgenaam in één fieldset .beneficiary
+        const wrapper = document.createElement("fieldset");
+        wrapper.classList.add("beneficiary");
+
+        // Voeg alle tabs (4a t/m 4g) toe aan wrapper
+        const tabs = clone.querySelectorAll(".tab");
+        tabs.forEach(tab => {
+            tab.classList.add("inactive"); // start verborgen
+            wrapper.appendChild(tab);
+        });
+
+        // Voeg wrapper toe aan container
+        container.appendChild(wrapper);
+    }
+
+    // Eerste erfgenaam en eerste tab zichtbaar maken
+    const firstTab = container.querySelector(".beneficiary .tab");
+    if(firstTab) {
+        firstTab.classList.remove("inactive");
+        firstTab.classList.add("active");
+        currentTab = Array.from(document.getElementsByClassName("tab")).indexOf(firstTab);
+        showTab(currentTab);
+    }
+});
+
+function showBeneficiariesSummary() {
+    const container = document.getElementById("beneficiaries-list");
+    container.innerHTML = ""; // eerst leegmaken
+
+    // Naam overledene ophalen
+    const firstName = document.querySelector('input[name="deceased-initals"]')?.value.trim() || "";
+    const infix = document.querySelector('input[name="deceased-infix"]')?.value.trim() || "";
+    const lastName = document.querySelector('input[name="deceased-last-name"]')?.value.trim() || "";
+    const deceasedFullName = [firstName, infix, lastName].filter(Boolean).join(" ");
+
+    if (deceasedFullName) {
+        const div = document.createElement("div");
+        div.innerHTML = `<strong>Overledene:</strong> ${deceasedFullName}`;
+        container.appendChild(div);
+    }
+
+    // Erfgenamen weergeven
+    const beneficiaries = document.querySelectorAll(".beneficiary");
+
+    beneficiaries.forEach((ben, index) => {
+        const initialsInput = ben.querySelector('input[name="beneficiary-initials"]');
+        const lastNameInput = ben.querySelector('input[name="beneficiary-last-name"]');
+
+        const initials = initialsInput ? initialsInput.value.trim() : "";
+        const lastName = lastNameInput ? lastNameInput.value.trim() : "";
+
+        // Alleen tonen als er iets is ingevuld
+        if (initials || lastName) {
+            const div = document.createElement("div");
+            div.textContent = `Erfgenaam ${index + 1}: ${initials} ${lastName}`;
+            container.appendChild(div);
+        }
+    });
+
+    // Als er geen erfgenamen zijn ingevuld
+    if (!container.hasChildNodes()) {
+        const div = document.createElement("div");
+        div.textContent = "Geen erfgenamen gevonden.";
+        container.appendChild(div);
+    }
+
+    // Modal tonen
+    document.getElementById("summaryModal").style.display = "flex";
+}
+
+// Modal sluiten
+function closeSummary() {
+    document.getElementById("summaryModal").style.display = "none";
+}
+
+// Echte verzendactie
+function submitForm() {
+    document.getElementById("erfbelastingForm").submit();
+}
