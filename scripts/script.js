@@ -105,3 +105,44 @@ window.addEventListener("click", function (event) {
     closePopup(); // Sluit popup, blijft op huidige tab
   }
 });
+
+
+
+
+
+
+document.getElementById("generate-beneficiaries").addEventListener("click", function() {
+    const num = parseInt(document.getElementById("num-beneficiaries").value);
+    const container = document.getElementById("beneficiaries-container");
+
+    // Eerst verwijderen wat er al stond
+    container.innerHTML = "";
+
+    const template = document.getElementById("beneficiary-template");
+
+    for (let i = 1; i <= num; i++) {
+        const clone = template.content.cloneNode(true);
+
+        // Geef legend een uniek nummer
+        const legend = clone.querySelector("legend");
+        legend.textContent = `Erfgenaam ${i}`;
+
+        // Alle nieuwe tabs **initieel verborgen**
+        const fieldset = clone.querySelector(".tab");
+        fieldset.classList.add("inactive");
+
+        container.appendChild(clone);
+    }
+
+    // Voeg alle nieuwe erfgenaam-tabs toe aan de tab-lijst
+    // De eerste tab (eerste erfgenaam) kan direct zichtbaar zijn
+    const firstTab = container.querySelector(".tab");
+    if(firstTab) {
+        firstTab.classList.remove("inactive");
+        firstTab.classList.add("active");
+    }
+
+    // Update je currentTab index zodat de paginering vanaf de eerste erfgenaam-tab start
+    currentTab = Array.from(document.getElementsByClassName("tab")).indexOf(firstTab);
+    showTab(currentTab);
+});
