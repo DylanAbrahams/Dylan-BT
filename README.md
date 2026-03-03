@@ -169,7 +169,16 @@ https://tractie.ns.nl/2e23992f3/p/105872-radio-buttons
 
 
 
-Als je op volgende knop drukt, blijf je daarop gefocust, met een screen reader zou dit lastig zijn.
+Als je op volgende knop drukt, blijf je daarop gefocust, met een screen reader zou dit lastig zijn. Ik heb in JavaScript toegevoegd dat de focus gaat naar de eerste vraag zodat je het met een screen reader zou blijven volgen zonder verdwaald te raken
+
+Verder ben ik bezig geweest met disabled inputs. De vragen die in eerste instantie disabled zijn die pas activeren wanneer je bij een bepaalde radio button JA invoert. Dit heb ik met JavaScript gedaan met behulp van IDs.
+
+Ook heb ik mijn code van gisteren wat opgeschoont. Nu werkt het maken van een nieuwe form per erfgename ook op de Volgende knop. Het enige wat ik nog moet toevoegen is de optie weghalen om naar de volgende pagina te gaan als je het aantal niet goed hebt ingevuld.
+
+Ik heb vandaag veel gekloot met onderdeel 4E/4F. Hier is de eerste vraag een radio en als je JA invoert kun je de rest van de pagina doen. Verder kun je meerdere legaten hebben en voor elk legaat apart invullen. Dit is vandaag niet gelukt. Ik ben ook aan het overwegen om dit onderdeel te schrappen. Ik heb nog 2 weken dus ik ga er nog over nadenken.
+
+### Checkout met
+Vandaag werd ik gerandomized met 
 
 ## Bronnenlijst
 
