@@ -602,18 +602,29 @@
                 <!-- 4e -->
                 <fieldset class="tab">
                     <legend>Erfdelen, legaten en legitieme portie (Vervolg)</legend>
-                    <fieldset>
-                        <legend>Krijgt deze verkrijger 1 of meer legaten van de overledene? <em>Denk ook aan een
-                                aanvullend legaat voor de langstlevende partner. Er bestaan 'legaten vrij van recht'
-                                en
-                                'legaten niet vrij van recht'. Een verkrijger kan beide krijgen.</em></legend>
+
+                    <!-- Vraag 1 -->
+                    <fieldset id="legacies-question">
+                        <legend>Krijgt deze verkrijger 1 of meer legaten van de overledene?
+                            <em>Denk ook aan een aanvullend legaat voor de langstlevende partner. Er bestaan 'legaten
+                                vrij van recht' en 'legaten niet vrij van recht'. Een verkrijger kan beide krijgen.</em>
+                        </legend>
                         <label>
-                            <input required type="radio" name="legacies" value="no">
+                            <input required type="radio" name="legacies-radio" value="no">
                             Nee
                         </label>
                         <label>
-                            <input required type="radio" name="legacies" value="yes">
+                            <input required type="radio" name="legacies-radio" value="yes">
                             Ja
+                        </label>
+                    </fieldset>
+
+                    <!-- Overige vragen -->
+                    <fieldset class="legacies-details" disabled>
+
+                        <label>
+                            Aantal legaten
+                            <input required type="number" name="legacy-amount" min="1">
                         </label>
 
                         <fieldset>
@@ -637,6 +648,7 @@
                                     <input required type="radio" name="legacy-other-beneficiary" value="yes">
                                     Ja
                                 </label>
+
                                 <fieldset>
                                     <legend>Bsn andere verkrijger</legend>
                                     <input required type="text" name="legacy-other-beneficiary-bsn" pattern="\d{9}"
@@ -668,21 +680,23 @@
                                 </label>
                             </fieldset>
                         </fieldset>
+                        <!-- 4f -->
+                        <fieldset>
+                            <legend>Inbreng van een schenking in de nalatenschap</legend>
+                            <label>
+                                Omschrijving van de inbreng.
+                                <input required type="text" name="collation-description">
+                            </label>
+                            <label>
+                                Waarde van de inbreng.
+                                <input required type="number" name="collation-worth">
+                            </label>
+                        </fieldset>
                     </fieldset>
                 </fieldset>
 
-                <!-- 4f -->
-                <fieldset class="tab">
-                    <legend>Inbreng van een schenking in de nalatenschap</legend>
-                    <label>
-                        Omschrijving van de inbreng.
-                        <input required type="text" name="collation-description">
-                    </label>
-                    <label>
-                        Waarde van de inbreng.
-                        <input required type="number" name="collation-worth">
-                    </label>
-                </fieldset>
+
+
 
                 <!-- 4g -->
                 <fieldset class="tab">

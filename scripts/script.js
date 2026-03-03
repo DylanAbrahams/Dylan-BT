@@ -70,10 +70,24 @@ function nextPrev(n) {
   changeTab(n);
 }
 
+// Verplaats focus naar eerste focusbare element op nieuwe tab
+function focusFirstElement(tabElement) {
+  const focusable = tabElement.querySelector(
+    'a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  if (focusable) {
+    focusable.focus();
+  } else {
+    // fallback: focus op de tab zelf
+    tabElement.setAttribute("tabindex", "-1");
+    tabElement.focus();
+  }
+}
+
 function changeTab(n) {
   const tabs = document.getElementsByClassName("tab");
-  currentTab += n;
 
+  currentTab += n;
   if (currentTab < 0) currentTab = 0;
   if (currentTab >= tabs.length) {
     showBeneficiariesSummary();
@@ -81,6 +95,10 @@ function changeTab(n) {
   }
 
   showTab(currentTab);
+
+  // ⚡ Focus naar eerste element van de nieuwe tab
+  const currentTabElement = tabs[currentTab];
+  focusFirstElement(currentTabElement);
 }
 
 // =========================
@@ -263,6 +281,7 @@ hadWillRadios.forEach(radio => {
     }
   });
 });
+
 
 // =========================
 // BUTTON TRIGGER VOOR ERFGENAAM GENERATIE
