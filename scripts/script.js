@@ -256,14 +256,14 @@ function submitForm() {
 
 // Alle code voor vragen inactief maken
 
-
+// ONDERDEEL 1B
 const marriedRadios = document.querySelectorAll('input[name="married-radio"]');
 const marriedFieldset = document.getElementById("married");
 
 const marrageRecordedRadios = document.querySelectorAll('input[name="marrage-recorded-radio"]');
 const marrageRecordedFieldsets = document.querySelectorAll('#marrage-recorded');
 
-// Vraag 1 → Vraag 2
+
 marriedRadios.forEach(radio => {
     radio.addEventListener("change", () => {
         if (radio.value === "yes" && radio.checked) {
@@ -297,6 +297,8 @@ marrageRecordedRadios.forEach(radio => {
     });
 });
 
+
+// ONDERDEEL 1C
 const childrenRadios = document.querySelectorAll('input[name="children-radio"]');
 const childrenDeceasedFieldset = document.getElementById("children-deceased");
 const childrenLastFieldset = document.getElementById("children-last");
@@ -329,6 +331,8 @@ childrenDeceasedRadios.forEach(radio => {
     });
 });
 
+
+// ONDERDEEL 1D
 const hadWillRadios = document.querySelectorAll('input[name="had-will-radio"]');
 const willDetailsFieldset = document.querySelector('.will-details');
 

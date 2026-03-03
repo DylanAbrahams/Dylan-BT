@@ -163,6 +163,14 @@ Ik heb laten zien wat ik heb gedaan. Ik heb nog het probleem dat onderdeel 4 nu 
 ### Werkzaamheden
 Vandaag begonnen we met de Weekly Geek. Ik heb met mijn clubje de radio buttons en checkboxes besproken. Verder hebben we die in codepen nagemaakt. Matthew had in zijn codepen de checkboxes nagemaakt en ik had in die van mij de radio buttons nagemaakt. Ik had eerst de code van de site gekopieerd maar die werkte niet. Uiteindelijk heb ik hem werkend gekregen met hu
 
+
+Ik ben bezig geweest met wat styling. Ik heb wat tekst blauw gemaakt net als de NS en heb de radio buttons aangepast naar deze pagina.
+https://tractie.ns.nl/2e23992f3/p/105872-radio-buttons
+
+
+
+Als je op volgende knop drukt, blijf je daarop gefocust, met een screen reader zou dit lastig zijn.
+
 ## Bronnenlijst
 
 NS Tractie - 
