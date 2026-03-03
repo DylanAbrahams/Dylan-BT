@@ -32,7 +32,7 @@
                     </legend>
                     <label>
                         Voorletters
-                        <input required type="text" name="deceased-initals">
+                        <input required type="text" class="caps" name="deceased-initals">
                     </label>
                     <label>
                         Tussenvoegsel
@@ -55,7 +55,7 @@
                         <input type="date" name="date-of-passing">
                     </fieldset> -->
                 <fieldset>
-                    <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
+                    <legend>Overlijdingsdatum</legend>
 
                     <label>Dag
                         <input required type="number" name="date-of-passing" min="1" max="31" placeholder="DD">
@@ -64,7 +64,8 @@
                         <input required type="number" name="month-of-passing" min="1" max="12" placeholder="MM">
                     </label>
                     <label>Jaar
-                        <input required type="number" name="year-of-passing" min="2000" max="2016" placeholder="JJJJ">
+                        <input required type="number" name="year-of-passing" min="2000" max="2026" placeholder="JJJJ"
+                            value="2026">
                     </label>
                     <!-- Met hulp van Aya A -->
 
@@ -74,37 +75,38 @@
             <!-- 1b -->
             <fieldset class="tab">
                 <legend>Partner Overledene</legend>
+
+                <!-- Vraag 1 -->
                 <fieldset>
-                    <legend>Was de overledene getrouwd of had de overledene een
-                        geregistreerde partner op het moment van overlijden?</legend>
+                    <legend>Was de overledene getrouwd of had de overledene een geregistreerde partner op het moment van
+                        overlijden?</legend>
                     <label>
-                        <input required type="radio" name="married" value="no">
+                        <input required type="radio" name="married-radio" value="no">
                         Nee
                     </label>
                     <label>
-                        <input required type="radio" name="married" value="yes">
+                        <input required type="radio" name="married-radio" value="yes">
                         Ja
                     </label>
                 </fieldset>
 
-                <fieldset>
-                    <legend>Hadden de overledene en diens echtgenoot of
-                        geregistreerde partner huwelijkse of partnerschapsvoorwaarden laten vastleggen in een
-                        notariële
-                        akte?</legend>
+                <!-- Vraag 2 -->
+                <fieldset id="married" disabled>
+                    <legend>Hadden de overledene en diens echtgenoot of geregistreerde partner huwelijkse of
+                        partnerschapsvoorwaarden laten vastleggen in een notariële akte?</legend>
                     <label>
-                        <input required type="radio" name="marrage-recorded" value="no">
+                        <input required type="radio" name="marrage-recorded-radio" value="no">
                         Nee
                     </label>
                     <label>
-                        <input required type="radio" name="marrage-recorded" value="yes">
+                        <input required type="radio" name="marrage-recorded-radio" value="yes">
                         Ja
                     </label>
                 </fieldset>
 
-                <fieldset>
-                    <legend>Hadden de overledene en diens partner een finaal
-                        verrekenbeding?</legend>
+                <!-- Vraag 3 -->
+                <fieldset id="marrage-recorded" disabled>
+                    <legend>Hadden de overledene en diens partner een finaal verrekenbeding?</legend>
                     <label>
                         <input required type="radio" name="settlement-clause" value="no">
                         Nee
@@ -115,10 +117,17 @@
                     </label>
                 </fieldset>
 
-                <fieldset>
+                <!-- Vraag 4 -->
+                <fieldset id="marrage-recorded" disabled>
                     <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
-                    <label>
-                        <input required type="date" name="date-marrage">
+                    <label>Dag
+                        <input required type="number" name="date-of-marrage" min="1" max="31" placeholder="DD">
+                    </label>
+                    <label>Maand
+                        <input required type="number" name="month-of-marrage" min="1" max="12" placeholder="MM">
+                    </label>
+                    <label>Jaar
+                        <input required type="number" name="year-of-marrage" min="1925" max="2026" placeholder="JJJJ">
                     </label>
                 </fieldset>
             </fieldset>
@@ -126,33 +135,36 @@
             <!-- 1c -->
             <fieldset class="tab">
                 <legend>Kinderen Overledene</legend>
-                <fieldset>
+
+                <!-- Vraag 1 -->
+                <fieldset id="children">
                     <legend>Had de overledene kinderen?</legend>
                     <label>
-                        <input required type="radio" name="children" value="no">
+                        <input required type="radio" name="children-radio" value="no">
                         Nee
                     </label>
                     <label>
-                        <input required type="radio" name="children" value="yes">
+                        <input required type="radio" name="children-radio" value="yes">
                         Ja
                     </label>
                 </fieldset>
 
-                <fieldset>
-                    <legend>Is 1 van deze kinderen eerder overleden dan de
-                        overledene voor wie u nu aangifte doet?
+                <!-- Vraag 2 -->
+                <fieldset id="children-deceased" disabled>
+                    <legend>Is 1 van deze kinderen eerder overleden dan de overledene voor wie u nu aangifte doet?
                     </legend>
                     <label>
-                        <input required type="radio" name="children-deceased" value="no">
+                        <input required type="radio" name="children-deceased-radio" value="no">
                         Nee
                     </label>
                     <label>
-                        <input required type="radio" name="children-deceased" value="yes">
+                        <input required type="radio" name="children-deceased-radio" value="yes">
                         Ja
                     </label>
                 </fieldset>
 
-                <fieldset>
+                <!-- Vraag 3 -->
+                <fieldset id="children-last" disabled>
                     <legend>Had dit overleden kind zelf kinderen?</legend>
                     <label>
                         <input required type="radio" name="deceased-child-had-children" value="no">
@@ -163,36 +175,41 @@
                         Ja
                     </label>
                 </fieldset>
+
             </fieldset>
 
             <!-- 1d -->
             <fieldset class="tab">
                 <legend>Testament</legend>
-                <fieldset>
+
+                <!-- Vraag 1 -->
+                <fieldset id="had-will">
                     <legend>Had de overledene een testament?</legend>
                     <label>
-                        <input required type="radio" name="had-will" value="no">
+                        <input required type="radio" name="had-will-radio" value="no">
                         Nee
                     </label>
                     <label>
-                        <input required type="radio" name="had-will" value="yes">
+                        <input required type="radio" name="had-will-radio" value="yes">
                         Ja
                     </label>
                 </fieldset>
 
-                <fieldset>
-                    <legend>Vul de gegevens in van de notaris die het testament heeft opgemaakt en de
-                        datum van het testament.</legend>
+                <!-- Overige vragen -->
+                <fieldset class="will-details" disabled>
+                    <legend>Vul de gegevens in van de notaris die het testament heeft opgemaakt en de datum van het
+                        testament.</legend>
+
                     <fieldset>
                         <legend>Protocolnummer notaris</legend>
                         <input required type="text" name="protocol-number" pattern="\d{6}" maxlength="6">
                     </fieldset>
+
                     <fieldset>
-                        <legend>Vul hier de gegevens in van de notaris.
-                        </legend>
+                        <legend>Vul hier de gegevens in van de notaris.</legend>
                         <label>
                             Voorletters
-                            <input required type="text" name="notary-initals">
+                            <input required type="text" class="caps" name="notary-initals">
                         </label>
                         <label>
                             Tussenvoegsel
@@ -203,16 +220,25 @@
                             <input required type="text" name="notary-last-name">
                         </label>
                     </fieldset>
+
                     <fieldset>
                         <legend>Vestigingsplaats</legend>
                         <input required type="text" name="place-of-business">
                     </fieldset>
+
                     <fieldset>
                         <legend>Datum van het testament of van de laatste wijziging</legend>
-                        <input required type="date" name="date-of-will">
+                        <label>Dag
+                            <input required type="number" name="date-of-will" min="1" max="31" placeholder="DD">
+                        </label>
+                        <label>Maand
+                            <input required type="number" name="month-of-will" min="1" max="12" placeholder="MM">
+                        </label>
+                        <label>Jaar
+                            <input required type="number" name="year-of-will" min="1950" max="2026" placeholder="JJJJ">
+                        </label>
                     </fieldset>
                 </fieldset>
-
             </fieldset>
 
             <!-- Uitleg onderdeel 4 -->
@@ -223,7 +249,7 @@
                 <p>Hoeveel erfgenamen wilt u invullen?</p>
                 <label>
                     Aantal erfgenamen:
-                    <input type="number" id="num-beneficiaries" min="1" value="1">
+                    <input type="number" id="num-beneficiaries" min="1" max="100" value="1">
                 </label>
                 <button type="button" id="generate-beneficiaries">Genereer erfgenamen</button>
             </fieldset>
@@ -242,7 +268,7 @@
                         </label>
                         <label>
                             Voorletters
-                            <input required type="text" name="beneficiary-initials">
+                            <input required type="text" class="caps" name="beneficiary-initials">
                         </label>
                         <label>
                             Tussenvoegsel
@@ -252,10 +278,19 @@
                             Achternaam
                             <input required type="text" name="beneficiary-last-name">
                         </label>
-                        <label>
-                            Geboortedatum
-                            <input required type="date" name="beneficiary-date-of-birth">
-                        </label>
+                        <fieldset>
+                            <legend>Geboortedatum</legend>
+                            <label>Dag
+                                <input required type="number" name="date-of-will" min="1" max="31" placeholder="DD">
+                            </label>
+                            <label>Maand
+                                <input required type="number" name="month-of-will" min="1" max="12" placeholder="MM">
+                            </label>
+                            <label>Jaar
+                                <input required type="number" name="year-of-will" min="1950" max="2026"
+                                    placeholder="JJJJ">
+                            </label>
+                        </fieldset>
                     </fieldset>
 
                     <fieldset>
@@ -371,10 +406,21 @@
                             <input required type="radio" name="cohabitation-contract-6-months" value="yes">
                             Ja
                         </label>
-                        <label>
-                            Datum notariële samenlevingsovereenkoms
-                            <input required type="date" name="cohabitation-agreement">
-                        </label>
+                        <fieldset>
+                            <legend>Datum notariële samenlevingsovereenkomst</legend>
+                            <label>Dag
+                                <input required type="number" name="date-of-agreement" min="1" max="31"
+                                    placeholder="DD">
+                            </label>
+                            <label>Maand
+                                <input required type="number" name="month-of-agreement" min="1" max="12"
+                                    placeholder="MM">
+                            </label>
+                            <label>Jaar
+                                <input required type="number" name="year-of-agreement" min="1950" max="2026"
+                                    placeholder="JJJJ">
+                            </label>
+                        </fieldset>
                     </fieldset>
 
                     <label>
@@ -643,10 +689,20 @@
                 <fieldset class="tab">
                     <legend>Ondertekening door de verkrijger. Als de executeur of de gemachtigde aangifte doet,
                         hoeft de verkrijger niet zelf te ondertekenen. </legend>
-                    <label>
-                        Datum
+                    <fieldset>
+                        <legend>Datum</legend>
                         <input required type="date" name="signing-date-beneficiary">
-                    </label>
+                        <label>Dag
+                            <input required type="number" name="date-of-signing" min="1" max="31" placeholder="DD">
+                        </label>
+                        <label>Maand
+                            <input required type="number" name="month-of-signing" min="1" max="12" placeholder="MM">
+                        </label>
+                        <label>Jaar
+                            <input required type="number" name="year-of-signing" min="2026" max="2026"
+                                placeholder="JJJJ" value="2026">
+                        </label>
+                    </fieldset>
                     <label>
                         Handtekening
                         <input required type="file" name="signature-beneficiary">

@@ -4,6 +4,12 @@
 let currentTab = 0;
 showTab(currentTab);
 
+document.querySelectorAll(".caps").forEach(input => {
+  input.addEventListener("input", function () {
+    this.value = this.value.toUpperCase();
+  });
+});
+
 function showTab(n) {
   const tabs = document.getElementsByClassName("tab");
 
@@ -111,130 +117,235 @@ window.addEventListener("click", function (event) {
 
 
 
-document.getElementById("generate-beneficiaries").addEventListener("click", function() {
-    const num = parseInt(document.getElementById("num-beneficiaries").value);
-    const container = document.getElementById("beneficiaries-container");
+document.getElementById("generate-beneficiaries").addEventListener("click", function () {
+  const num = parseInt(document.getElementById("num-beneficiaries").value);
+  const container = document.getElementById("beneficiaries-container");
 
-    // Eerst verwijderen wat er al stond
-    container.innerHTML = "";
+  // Eerst verwijderen wat er al stond
+  container.innerHTML = "";
 
-    const template = document.getElementById("beneficiary-template");
+  const template = document.getElementById("beneficiary-template");
 
-    for (let i = 1; i <= num; i++) {
-        const clone = template.content.cloneNode(true);
+  for (let i = 1; i <= num; i++) {
+    const clone = template.content.cloneNode(true);
 
-        // Geef legend een uniek nummer
-        const legend = clone.querySelector("legend");
-        legend.textContent = `Erfgenaam ${i}`;
+    // Geef legend een uniek nummer
+    const legend = clone.querySelector("legend");
+    legend.textContent = `Erfgenaam ${i}`;
 
-        // Alle nieuwe tabs **initieel verborgen**
-        const fieldset = clone.querySelector(".tab");
-        fieldset.classList.add("inactive");
+    // Alle nieuwe tabs **initieel verborgen**
+    const fieldset = clone.querySelector(".tab");
+    fieldset.classList.add("inactive");
 
-        container.appendChild(clone);
-    }
+    container.appendChild(clone);
+  }
 
-    // Voeg alle nieuwe erfgenaam-tabs toe aan de tab-lijst
-    // De eerste tab (eerste erfgenaam) kan direct zichtbaar zijn
-    const firstTab = container.querySelector(".tab");
-    if(firstTab) {
-        firstTab.classList.remove("inactive");
-        firstTab.classList.add("active");
-    }
+  // Voeg alle nieuwe erfgenaam-tabs toe aan de tab-lijst
+  // De eerste tab (eerste erfgenaam) kan direct zichtbaar zijn
+  const firstTab = container.querySelector(".tab");
+  if (firstTab) {
+    firstTab.classList.remove("inactive");
+    firstTab.classList.add("active");
+  }
 
-    // Update je currentTab index zodat de paginering vanaf de eerste erfgenaam-tab start
-    currentTab = Array.from(document.getElementsByClassName("tab")).indexOf(firstTab);
-    showTab(currentTab);
+  // Update je currentTab index zodat de paginering vanaf de eerste erfgenaam-tab start
+  currentTab = Array.from(document.getElementsByClassName("tab")).indexOf(firstTab);
+  showTab(currentTab);
 });
 
-document.getElementById("generate-beneficiaries").addEventListener("click", function() {
-    const num = parseInt(document.getElementById("num-beneficiaries").value);
-    const container = document.getElementById("beneficiaries-container");
+document.getElementById("generate-beneficiaries").addEventListener("click", function () {
+  const num = parseInt(document.getElementById("num-beneficiaries").value);
+  const container = document.getElementById("beneficiaries-container");
 
-    // Eerst verwijderen wat er al stond
-    container.innerHTML = "";
+  // Eerst verwijderen wat er al stond
+  container.innerHTML = "";
 
-    const template = document.getElementById("beneficiary-template");
+  const template = document.getElementById("beneficiary-template");
 
-    for (let i = 1; i <= num; i++) {
-        const clone = template.content.cloneNode(true);
+  for (let i = 1; i <= num; i++) {
+    const clone = template.content.cloneNode(true);
 
-        // Wrap alle tabs van deze erfgenaam in één fieldset .beneficiary
-        const wrapper = document.createElement("fieldset");
-        wrapper.classList.add("beneficiary");
+    // Wrap alle tabs van deze erfgenaam in één fieldset .beneficiary
+    const wrapper = document.createElement("fieldset");
+    wrapper.classList.add("beneficiary");
 
-        // Voeg alle tabs (4a t/m 4g) toe aan wrapper
-        const tabs = clone.querySelectorAll(".tab");
-        tabs.forEach(tab => {
-            tab.classList.add("inactive"); // start verborgen
-            wrapper.appendChild(tab);
-        });
+    // Voeg alle tabs (4a t/m 4g) toe aan wrapper
+    const tabs = clone.querySelectorAll(".tab");
+    tabs.forEach(tab => {
+      tab.classList.add("inactive"); // start verborgen
+      wrapper.appendChild(tab);
+    });
 
-        // Voeg wrapper toe aan container
-        container.appendChild(wrapper);
-    }
+    // Voeg wrapper toe aan container
+    container.appendChild(wrapper);
 
-    // Eerste erfgenaam en eerste tab zichtbaar maken
-    const firstTab = container.querySelector(".beneficiary .tab");
-    if(firstTab) {
-        firstTab.classList.remove("inactive");
-        firstTab.classList.add("active");
-        currentTab = Array.from(document.getElementsByClassName("tab")).indexOf(firstTab);
-        showTab(currentTab);
-    }
+    // Caps op de hoofdletters
+    document.querySelectorAll(".caps").forEach(input => {
+      input.addEventListener("input", function () {
+        this.value = this.value.toUpperCase();
+      });
+    });
+  }
+
+  // Eerste erfgenaam en eerste tab zichtbaar maken
+  const firstTab = container.querySelector(".beneficiary .tab");
+  if (firstTab) {
+    firstTab.classList.remove("inactive");
+    firstTab.classList.add("active");
+    currentTab = Array.from(document.getElementsByClassName("tab")).indexOf(firstTab);
+    showTab(currentTab);
+  }
 });
 
 function showBeneficiariesSummary() {
-    const container = document.getElementById("beneficiaries-list");
-    container.innerHTML = ""; // eerst leegmaken
+  const container = document.getElementById("beneficiaries-list");
+  container.innerHTML = ""; // eerst leegmaken
 
-    // Naam overledene ophalen
-    const firstName = document.querySelector('input[name="deceased-initals"]')?.value.trim() || "";
-    const infix = document.querySelector('input[name="deceased-infix"]')?.value.trim() || "";
-    const lastName = document.querySelector('input[name="deceased-last-name"]')?.value.trim() || "";
-    const deceasedFullName = [firstName, infix, lastName].filter(Boolean).join(" ");
+  // Naam overledene ophalen
+  const firstName = document.querySelector('input[name="deceased-initals"]')?.value.trim() || "";
+  const infix = document.querySelector('input[name="deceased-infix"]')?.value.trim() || "";
+  const lastName = document.querySelector('input[name="deceased-last-name"]')?.value.trim() || "";
+  const deceasedFullName = [firstName, infix, lastName].filter(Boolean).join(" ");
 
-    if (deceasedFullName) {
-        const div = document.createElement("div");
-        div.innerHTML = `<strong>Overledene:</strong> ${deceasedFullName}`;
-        container.appendChild(div);
+  if (deceasedFullName) {
+    const div = document.createElement("div");
+    div.innerHTML = `<strong>Overledene:</strong> ${deceasedFullName}`;
+    container.appendChild(div);
+  }
+
+  // Erfgenamen weergeven
+  const beneficiaries = document.querySelectorAll(".beneficiary");
+
+  beneficiaries.forEach((ben, index) => {
+    const initialsInput = ben.querySelector('input[name="beneficiary-initials"]');
+    const lastNameInput = ben.querySelector('input[name="beneficiary-last-name"]');
+
+    const initials = initialsInput ? initialsInput.value.trim() : "";
+    const lastName = lastNameInput ? lastNameInput.value.trim() : "";
+
+    // Alleen tonen als er iets is ingevuld
+    if (initials || lastName) {
+      const div = document.createElement("div");
+      div.textContent = `Erfgenaam ${index + 1}: ${initials} ${lastName}`;
+      container.appendChild(div);
     }
+  });
 
-    // Erfgenamen weergeven
-    const beneficiaries = document.querySelectorAll(".beneficiary");
+  // Als er geen erfgenamen zijn ingevuld
+  if (!container.hasChildNodes()) {
+    const div = document.createElement("div");
+    div.textContent = "Geen erfgenamen gevonden.";
+    container.appendChild(div);
+  }
 
-    beneficiaries.forEach((ben, index) => {
-        const initialsInput = ben.querySelector('input[name="beneficiary-initials"]');
-        const lastNameInput = ben.querySelector('input[name="beneficiary-last-name"]');
-
-        const initials = initialsInput ? initialsInput.value.trim() : "";
-        const lastName = lastNameInput ? lastNameInput.value.trim() : "";
-
-        // Alleen tonen als er iets is ingevuld
-        if (initials || lastName) {
-            const div = document.createElement("div");
-            div.textContent = `Erfgenaam ${index + 1}: ${initials} ${lastName}`;
-            container.appendChild(div);
-        }
-    });
-
-    // Als er geen erfgenamen zijn ingevuld
-    if (!container.hasChildNodes()) {
-        const div = document.createElement("div");
-        div.textContent = "Geen erfgenamen gevonden.";
-        container.appendChild(div);
-    }
-
-    // Modal tonen
-    document.getElementById("summaryModal").style.display = "flex";
+  // Modal tonen
+  document.getElementById("summaryModal").style.display = "flex";
 }
 
 // Modal sluiten
 function closeSummary() {
-    document.getElementById("summaryModal").style.display = "none";
+  document.getElementById("summaryModal").style.display = "none";
 }
 
 // Echte verzendactie
 function submitForm() {
-    document.getElementById("erfbelastingForm").submit();
+  document.getElementById("erfbelastingForm").submit();
 }
+
+
+
+// Alle code voor vragen inactief maken
+
+
+const marriedRadios = document.querySelectorAll('input[name="married-radio"]');
+const marriedFieldset = document.getElementById("married");
+
+const marrageRecordedRadios = document.querySelectorAll('input[name="marrage-recorded-radio"]');
+const marrageRecordedFieldsets = document.querySelectorAll('#marrage-recorded');
+
+// Vraag 1 → Vraag 2
+marriedRadios.forEach(radio => {
+    radio.addEventListener("change", () => {
+        if (radio.value === "yes" && radio.checked) {
+            marriedFieldset.disabled = false;
+        } else {
+            marriedFieldset.disabled = true;
+            // reset Vraag 2
+            marrageRecordedRadios.forEach(r => r.checked = false);
+            // disable & reset Vraag 3 + 4
+            marrageRecordedFieldsets.forEach(f => {
+                f.disabled = true;
+                f.querySelectorAll('input').forEach(i => i.value = "");
+                f.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+            });
+        }
+    });
+});
+
+// Vraag 2 → Vraag 3 & 4
+marrageRecordedRadios.forEach(radio => {
+    radio.addEventListener("change", () => {
+        if (radio.value === "yes" && radio.checked) {
+            marrageRecordedFieldsets.forEach(f => f.disabled = false);
+        } else {
+            marrageRecordedFieldsets.forEach(f => {
+                f.disabled = true;
+                f.querySelectorAll('input').forEach(i => i.value = "");
+                f.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+            });
+        }
+    });
+});
+
+const childrenRadios = document.querySelectorAll('input[name="children-radio"]');
+const childrenDeceasedFieldset = document.getElementById("children-deceased");
+const childrenLastFieldset = document.getElementById("children-last");
+
+childrenRadios.forEach(radio => {
+    radio.addEventListener("change", () => {
+        if (radio.value === "yes" && radio.checked) {
+            childrenDeceasedFieldset.disabled = false;
+        } else {
+            childrenDeceasedFieldset.disabled = true;
+            childrenLastFieldset.disabled = true;
+            // reset Vraag 2 en 3
+            childrenDeceasedFieldset.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+            childrenLastFieldset.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+        }
+    });
+});
+
+// Vraag 2 → Vraag 3
+const childrenDeceasedRadios = document.querySelectorAll('input[name="children-deceased-radio"]');
+childrenDeceasedRadios.forEach(radio => {
+    radio.addEventListener("change", () => {
+        if (radio.value === "yes" && radio.checked) {
+            childrenLastFieldset.disabled = false;
+        } else {
+            childrenLastFieldset.disabled = true;
+            // reset Vraag 3
+            childrenLastFieldset.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+        }
+    });
+});
+
+const hadWillRadios = document.querySelectorAll('input[name="had-will-radio"]');
+const willDetailsFieldset = document.querySelector('.will-details');
+
+hadWillRadios.forEach(radio => {
+    radio.addEventListener("change", () => {
+        if (radio.value === "yes" && radio.checked) {
+            willDetailsFieldset.disabled = false;
+        } else {
+            willDetailsFieldset.disabled = true;
+            // reset alle inputs in de overige vragen
+            willDetailsFieldset.querySelectorAll('input').forEach(i => {
+                if (i.type === "radio" || i.type === "checkbox") {
+                    i.checked = false;
+                } else {
+                    i.value = "";
+                }
+            });
+        }
+    });
+});

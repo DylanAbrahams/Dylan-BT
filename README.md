@@ -154,12 +154,14 @@ Labels zijn essentieel voor radio buttons en checkboxes. Zonder labels zou je ni
 Uiteindelijk heb ik wat ideeen opgedaan over hoe je radios/checkboxes kunt maken met HTML en JS. Je kunt met JavaScript togglen tussen de states die je nodig hebt en met HTML kun je vierkantjes of cirkeltjes maken die je met CSS kan stylen. Wel zat ik te denken: een checkbox is gewoon een boolean. In JavaScript is een boolean een element die aan/uit kan zijn (true/false). In principe zou je dit dan op HTML elementen toe kunnen passen. Dit ga ik morgen proberen.
 
 
-### Checkout met 
-Ik werd vabdaag gerandomized met 
-Rode kleur op invalid inputs
+### Checkout met Mitchell
+Ik werd vabdaag gerandomized met Mitchell. Hij heeft momenteel 1 pagina met alles van onderdeel 1. Hij is vandaag bezig geweest met validatie. Wanneer je op verzenden klikt komt er een rode kleur op alle inputs die niet in orde zijn.
+Verder is hij van plan om de NS Radio Panels na te maken van de NS Tractie.
+Ik heb laten zien wat ik heb gedaan. Ik heb nog het probleem dat onderdeel 4 nu niet zichtbaar is wanneer ik de pagina zonder JS laadt. Verder zou je hem het liefst meerdere keren willen invullen. Hij kwam met het idee om standaard 4 erfgnamen in te stellen voor progressive enhancement, maar dat zou wel veel HTML zijn.
 
-NS Radio Panel
-Standaard 4 erfgnamen progressive enhancement
+## Dag 4 (3 maart)
+### Werkzaamheden
+Vandaag begonnen we met de Weekly Geek. Ik heb met mijn clubje de radio buttons en checkboxes besproken. Verder hebben we die in codepen nagemaakt. Matthew had in zijn codepen de checkboxes nagemaakt en ik had in die van mij de radio buttons nagemaakt. Ik had eerst de code van de site gekopieerd maar die werkte niet. Uiteindelijk heb ik hem werkend gekregen met hu
 
 ## Bronnenlijst
 
