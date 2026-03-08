@@ -177,10 +177,23 @@ Ook heb ik mijn code van gisteren wat opgeschoont. Nu werkt het maken van een ni
 
 Ik heb vandaag veel gekloot met onderdeel 4E/4F. Hier is de eerste vraag een radio en als je JA invoert kun je de rest van de pagina doen. Verder kun je meerdere legaten hebben en voor elk legaat apart invullen. Dit is vandaag niet gelukt. Ik ben ook aan het overwegen om dit onderdeel te schrappen. Ik heb nog 2 weken dus ik ga er nog over nadenken.
 
-### Checkout met
+### Checkout met Maja
 Vandaag werd ik gerandomized met Maja
 Zij heeft nog geen styling op haar website. Wel heeft ze feedback voor de gebruiker wanneer je het formulier niet goed invult. Verder heeft ze rode & groene inputs om te laten zien wanneer je iets wel of niet goed hebt ingevuld.
 Bij de progressive disclosure knoppen haalt zij de inputs weg met display none en heeft ze extra code gebruikt voor required/resets.
+
+
+## Week 2 Overzicht
+
+
+Sela heeft error messages als tekst onder de inputs
+Matthew heeft progressive disclosure volledig met CSS dmv :has()
+
+Focus op detail, niet meer op kwantiteit
+4e scrappen
+
+Disabled buttons duidelijker maken
+Validatie !!!
 
 ## Bronnenlijst
 
