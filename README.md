@@ -184,16 +184,44 @@ Bij de progressive disclosure knoppen haalt zij de inputs weg met display none e
 
 
 ## Week 2 Overzicht
+Deze week ben ik veel bezig geweest met de logica van het formulier. Ten eerste heb ik wat tabs toegevoegd tussen de onderdelen door. Aan het begin heb je een korte introductie voordat je de eerste vraag in beeld krijgt. Je klikt op Volgende om naar de volgende pagina te gaan. Daarnaast is er een pagina aan het eind van het formulier voor een kort bedankje en een tussenpagina voor de start van onderdeel 4 waarin de gebruiker het aantal erfgenames kan invullen.
 
+<img src="img/readme-img/week2-introductie.png" alt="Afbeelding van week 2" height=400>
+<img src="img/readme-img/week2-bedankje.png" alt="Afbeelding van week 2" height=400>
 
-Sela heeft error messages als tekst onder de inputs
+Hij is nog niet perfect maar je kunt in deze input het aantal erfgenames invoeren en voor elke erfgename komen er 7 pagina's bij (heel onderdeel 4 is per erfgename). De paginas worden pas geladen wanneer er een antwoord is gegeven. Op het moment is het minimaal 1 en maximaal 100. Voor de grap heb ik 1000 en zelfs 9999999999999 geprobeerd en mijn website was vastgelopen... De cap wordt dus 100. 
+
+<img src="img/readme-img/week2-aantal-erfgenamen.png" alt="Afbeelding van week 2" height=400>
+
+Aan het eind van het formulier zie je een popupp van de namen van de overledene en erfgenames om nog een overzicht te krijgen voor hoeveel mensen je hebt ingevuld.
+<img src="img/readme-img/week2-overzicht.png" alt="Afbeelding van week 2" height=400>
+
+Verder zijn we deze week veel bezig geweest met validatie. Op elke pagina wordt er gevalideerd of elke vraag wel/niet goed is ingevuld en wanneer dit niet het geval is, krijg je een popup in beeld die laat weten dat nog niet alles correct is ingevuld. Wel krijg je de optie om verder te gaan om later alles te corrigeren. Ik vind dat de gebruiker wel de optie mag hebben om de rest van de vragen te lezen voordat alles perfect is ingevuld.
+
+<img src="img/readme-img/week2-waarschuwing.png" alt="Afbeelding van week 2" height=400>
+
+Ook heb ik disabled buttons toegepast voor de optionele vragen. Deze vragen worden pas aangezet wanneer de ze relevant worden door JA te kiezen bij een andere vraag. Ik vind het geen fijn idee om vragen onzichtbaar te maken want dan weet de gebruiker niet of ze nog belangrijk worden of wordt de gebruiker spontaan gejumpscared door meer vragen. Ik wil laten zien dat de vragen daar staan maar wel duidelijk hebben dat je ze niet per se hoeft in te vullen. Ik ga nog wat styling toepassen om dit duidelijker te maken.
+
+<img src="img/readme-img/week2-disabled-buttons.png" alt="Afbeelding van week 2" height=400>
+
+Als laatste heb ik nog iets toegepast voor screenreaders. Als je het formulier met toetsenbord alleen bedient (dus met TAB en SPACE), wanneer je bij de volgende knop komt en naar de volgende pagina gaat, heb ik logica toegevoegt dat de focus weer komt op de eerste input. Zo kun je gelijk verder zonder terug te hoeven tabben naar boven.
+<img src="img/readme-img/week2-focus.png" alt="Afbeelding van week 2" height=400>
+
+Ik ben verder nog bezig geweest met de logica implementeren voor onderdeel 4e/4f, maar omdat dit al werk is die al eerder heb gedaan en ik al veel andere logica erin heb zitten, zit ik eraan te denken om dit onderdeel te schrappen. Hier ga ik het in het groepsgesprek over hebben.
+
+Op vrijdag heb ik het gesprek gehad met mijn clubje, hiervan wat aantekeningen:
+Sela heeft de standaard error messages als tekst onder de inputs
 Matthew heeft progressive disclosure volledig met CSS dmv :has()
 
-Focus op detail, niet meer op kwantiteit
-4e scrappen
-
-Disabled buttons duidelijker maken
+Tips:
+Doe meer focus op detail, niet meer op kwantiteit
+Ik ga 4e schrappen. Ik kan me beter focussen op het verbeteren van de andere functionaliteiten.
+Je kan 31 februari intikken. Dit zou niet mogelijk moeten zijn.
+Disabled buttons duidelijker maken met styling.
 Validatie !!!
+Maak duidelijk wanneer de gebruiker iets goed/fout invult. Ik ben van plan om dit te doen per vraag. Verder wil ik extra info bij elke vraag neerzetten.
+
+
 
 ## Bronnenlijst
 
