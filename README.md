@@ -265,9 +265,17 @@ Aya eerst alles in 1 fieldset, nu opgedeeld. Vragen die zichtbaar worden
 
 
 ## Dag 6 (10 maart)
-Vandaag waren begonnen met de Weekly Geek. We hadden een wooclap over de video.
+### Werkzaamheden
+Vandaag waren begonnen met de Weekly Geek. We hadden een wooclap over de video. Op zich niet heel veel om over te zeggen. Was een beetje hetzelfde als week 1
 
-Geen validatie op radio buttons
+Ik kwam erachter dat er nog validatie tekst kwam op de radio buttons. Dit vond ik niet nodig, aangezien radio buttons meestal geen extra eisen hebben om deze in te vullen. Deze hebben dus geen validatie styling meer. Wel was ik nog even bezig met de styling van de radio buttons op onderdeel 4c. Hier zitten een paar radio buttons met veel tekst waardoor de buttons gesquished werden. Ik heb dit opgelost door de label op te delen in een grid met links de knoppen en rechts de tekst. Wel zit er nog een waarschuwingstekst over het kind met handicap, dus heb ik deze in de HTML iets aangepast door er een aparte p element voor te gebruiken en deze een styling te geven 
+
+Ik heb vandaag veel tijd gestopt in progressive enhancement. Een groot onderdeel van mijn formulier is dat er meer pagina's aan vragen tevoorschijn komen als je meerdere erfgenames invoert. Dit werd gedaan met een template. Het probleem bij een template is dat deze NIET standaard zichtbaar is. Ik heb de HTML code in de template in een div geplaatst. Verder heb ik een lege template ernaast. Met JavaScript wordt de div in het template geplaatst, waardoor deze meerdere keren gegenereerd kan worden. Nu zijn deze vragen ook zichtbaar zonder JavaScript. Verder zit er nu ook standaard 1 erfgename aan formulieren in. Eerst waren het nog 0 en moest de eerste nog gegenereerd worden. 
+
+Ik heb vandaag besloten om nog een paar onderdelen te schrappen. Dit zijn allemaal onderdelen die al eerder heb gedaan waar extra logica voor nodig is. Ik had al heel 4e/4f geschrapt. Ik heb nu ook de extra vragen in 4c, het buitenland adres in 4b en een klein stukje van 4d. Wel heb ik in 4d nog een paar disabled buttons toegevoegd. Daarnaast heb ik het erfdeel gedefinieerd in percentages. Bij deze zijn alle vragen nu goed te beantwoorden. Ik kan nog wat dingen toevoegen voor verduidelijking.
+
+### Checkout met Arvid
+Ik werd vandaag gerandomized met Arvid. Hij is vandaag met validatie en progressive disclosure bezig geweest. Volgende week is de laatste week. Ik ben van plan om de laatste week iig de desktop versie compleet te maken. Verder wil nog wat progressive enhancement dingen toevoegen voor meerdere erfgenames. Daarnaast kan er altijd nog wat verduidelijking bij de vragen en validatie.
 
 ## Bronnenlijst
 

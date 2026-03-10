@@ -76,6 +76,7 @@ label:has(input[type="radio"]) {
 
 .label-warning {
     margin-top:0;
+    margin-bottom:1.6em;
     font-style: italic;
 }
 
