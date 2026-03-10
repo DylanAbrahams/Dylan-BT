@@ -96,7 +96,7 @@ function changeTab(n) {
 
   showTab(currentTab);
 
-  // ⚡ Focus naar eerste element van de nieuwe tab
+  // Focus naar eerste element van de nieuwe tab
   const currentTabElement = tabs[currentTab];
   focusFirstElement(currentTabElement);
 }
@@ -123,22 +123,79 @@ function generateBeneficiaries() {
     });
 
     container.appendChild(wrapper);
+
+    // ⚡ ENABLE / DISABLE LOGICA toevoegen per beneficiary
+    const forcedRadios = wrapper.querySelectorAll('input[name="forced-share"]');
+    const forcedFieldset = wrapper.querySelector('#forced-share-fieldset');
+    const partnerRadios = wrapper.querySelectorAll('input[name="partner-inheritance"]');
+    const partnerFieldset = wrapper.querySelector('#partner-fieldset');
+
+    // Functie om inputs required te maken
+    function setRequired(fieldset, required) {
+      fieldset.querySelectorAll('input').forEach(input => {
+        input.required = required;
+      });
+    }
+
+    // Legitieme portie
+    if (forcedRadios.length && forcedFieldset) {
+      forcedFieldset.disabled = true;
+      setRequired(forcedFieldset, false);
+
+      forcedRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+          if (radio.checked && radio.value === 'yes') {
+            forcedFieldset.disabled = false;
+            setRequired(forcedFieldset, true);
+          } else if (radio.checked && radio.value === 'no') {
+            forcedFieldset.disabled = true;
+            setRequired(forcedFieldset, false);
+            forcedFieldset.querySelectorAll('input').forEach(i => {
+              i.value = '';
+              if (i.type === 'radio') i.checked = false;
+            });
+          }
+        });
+      });
+    }
+
+    // Partnergegevens
+    if (partnerRadios.length && partnerFieldset) {
+      partnerFieldset.disabled = true;
+      setRequired(partnerFieldset, false);
+
+      partnerRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+          if (radio.checked && radio.value === 'yes') {
+            partnerFieldset.disabled = false;
+            setRequired(partnerFieldset, true);
+          } else if (radio.checked && radio.value === 'no') {
+            partnerFieldset.disabled = true;
+            setRequired(partnerFieldset, false);
+            partnerFieldset.querySelectorAll('input').forEach(i => {
+              i.value = '';
+              if (i.type === 'radio') i.checked = false;
+            });
+          }
+        });
+      });
+    }
   }
 
-  // ⚡ Remove .active from all tabs on the page
+  // Remove .active from all tabs on the page
   document.querySelectorAll(".tab.active").forEach(tab => {
     tab.classList.remove("active");
     tab.classList.add("inactive");
   });
 
-  // ⚡ Activate only the first tab of the first beneficiary
+  // Activate only the first tab of the first beneficiary
   const firstTab = container.querySelector(".beneficiary:first-child .tab");
   if (firstTab) {
     firstTab.classList.remove("inactive");
     firstTab.classList.add("active");
   }
 
-  // ⚡ Voeg touched validation toe aan nieuwe inputs
+  // Voeg touched validation toe aan nieuwe inputs
   container.querySelectorAll("input, select, textarea").forEach(input => {
     if (!input.nextElementSibling || !input.nextElementSibling.classList.contains("validation-message")) {
       const span = document.createElement("span");
@@ -307,6 +364,9 @@ hadWillRadios.forEach(radio => {
     }
   });
 });
+
+
+// ONDERDEEL 4D
 
 
 

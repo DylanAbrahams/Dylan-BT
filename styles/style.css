@@ -1,3 +1,4 @@
+/* ---------------------- Base Styles ---------------------- */
 html {
     --font-family: Segoe UI, Verdana, sans-serif;
 
@@ -14,18 +15,16 @@ html {
 
 body {
     font-family: var(--font-family);
-    margin:0;
-    padding:0;
-    background-color: var(--certiary-color)
+    margin: 0;
+    padding: 0;
+    background-color: var(--certiary-color);
 }
 
 header {
     background-color: var(--primary-color);
-    padding:.5em;
-    margin-bottom:1em;
+    padding: .5em;
+    margin-bottom: 1em;
 }
-
-
 
 form {
     width: 80vw;
@@ -33,33 +32,31 @@ form {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    padding:2em;
+    padding: 2em;
     background-color: var(--white-color);
     border-radius: 4px;
-    /* box-shadow:  */
 }
 
-
+/* ---------------------- Fieldset & Legend ---------------------- */
 fieldset {
     display: flex;
     flex-direction: column;
     border: none;
     padding: 1em 0;
-    margin: .5em 0; 
+    margin: .5em 0;
     background: none;
 }
 
-
-
-
 legend {
     font-weight: bold;
-    color:var(--secondary-color)
+    color: var(--secondary-color);
 }
+
 .tab > legend {
     font-size: 1.2em;
 }
 
+/* ---------------------- Labels & Radio Buttons ---------------------- */
 /* Default label layout */
 label {
     display: flex;
@@ -69,15 +66,28 @@ label {
     cursor: pointer;
 }
 
-/* Space between radio button and text */
+label:has(input[type="radio"]) {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr; /* radio circle + text column */
+    grid-gap: 0.5rem;                  /* space between circle and text */
+    align-items: center;                 /* top-align circle with first line */
+    margin: 0.4em 0;
+}
+
+.label-warning {
+    margin-top:0;
+    font-style: italic;
+}
+
+/* Custom radio buttons */
 input[type="radio"] {
-    margin-right: 0.5em;
+    margin-top: 0.2em;
+    width: 1.5rem;
+    height: 1.5rem;
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
-    width: 1.25rem;
-    height: 1.25rem;
-    border: 2px solid #888;      /* standaard grijs */
+    border: 2px solid #888;      /* standard gray border */
     border-radius: 50%;
     position: relative;
     transition: border-color 0.2s, background-color 0.2s;
@@ -85,11 +95,11 @@ input[type="radio"] {
 
 /* Checked state */
 input[type="radio"]:checked {
-    border-color: #0057b8;       /* NS-blauw */
-    background-color: #0057b8;
+    border-color: var(--secondary-color);
+    background-color: var(--secondary-color);
 }
 
-/* Inner dot when checked */
+/* Inner dot for checked state */
 input[type="radio"]:checked::after {
     content: "";
     position: absolute;
@@ -101,35 +111,28 @@ input[type="radio"]:checked::after {
     background-color: white;
 }
 
-/* Focus outline for accessibility */
+/* Focus outline */
 input[type="radio"]:focus-visible {
-    outline: 3px solid #ffde00;  /* NS-geel */
+    outline: 3px solid var(--primary-color);
     outline-offset: 2px;
-}
-
-/* Labels that contain a radio: arrange horizontally */
-label:has(input[type="radio"]) {
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 0.3em;
 }
 
 /* Disabled state */
 input[type="radio"]:disabled {
-    border-color: #ccc;           /* lichtere grijs */
-    background-color: #eee;       /* lichte fill */
+    border-color: #ccc;
+    background-color: #eee;
     cursor: not-allowed;
 }
 
 input[type="radio"]:disabled:checked::after {
-    background-color: #ccc;       /* subtiele dot voor checked disabled */
+    background-color: #ccc;
 }
 
 label input[type="radio"]:disabled + * {
-    color: #888;                  /* tekst lichter voor disabled */
+    color: #888;
 }
 
-/* Input styling */
+/* ---------------------- Inputs ---------------------- */
 input[type="text"],
 input[type="number"],
 input[type="date"],
@@ -139,24 +142,28 @@ input[type="file"] {
     border-radius: 4px;
 }
 
+/* ---------------------- Tabs ---------------------- */
 .tab {
     display: flex;
     flex-direction: column;
-    height:58vh;
+    height: 58vh;
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
+
 .tab.active {
     display: flex;
 }
+
 .tab.inactive {
     display: none;
 }
 
-.button-row{
-    display:flex;
-    justify-content:flex-end;
-    width:100%;
+/* ---------------------- Buttons ---------------------- */
+.button-row {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 button {
@@ -168,58 +175,55 @@ button {
     font-size: 1em;
     min-width: 8em;
     padding: 1em 2em;
-    margin:.5em;
+    margin: .5em;
     transition: box-shadow .15s ease-in-out;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-button:hover{
+button:hover {
     box-shadow: inset 0 -3.125rem 0 var(--secondary-color);
 }
 
-
-
-
+/* ---------------------- Feedback ---------------------- */
 .warning {
     color: var(--warning-color);
 }
-
 
 .beneficiary {
     padding: 0;
     margin: 0;
 }
 
+/* ---------------------- Modal ---------------------- */
 .modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: var(--popup-background);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--popup-background);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
 }
 
 .modal-content {
-  background: var(--white-color);
-  padding: 2rem;
-  width: 80vw;
-  border-radius: 8px;
-  text-align: center;
-  list-style-type: none;
+    background: var(--white-color);
+    padding: 2rem;
+    width: 80vw;
+    border-radius: 8px;
+    text-align: center;
+    list-style-type: none;
 }
 
 .modal-buttons {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: space-between;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .modal-buttons button {
-  padding: 0.6rem 1.2rem;
-  cursor: pointer;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
 }
-
 
 #summaryModal {
     display: none;
@@ -234,30 +238,28 @@ button:hover{
     align-items: center;
 }
 
-
-/* Randen kleuren pas na eerste input */
+/* ---------------------- Validation ---------------------- */
 input.touched.valid,
 select.touched.valid,
 textarea.touched.valid {
-  border: 1px solid var(--success-color); /* groen */
+    border: 1px solid var(--success-color);
 }
 
 input.touched.invalid,
 select.touched.invalid,
 textarea.touched.invalid {
-  border: 1px solid var(--warning-color); /* rood */
+    border: 1px solid var(--warning-color);
 }
 
-/* Feedback boodschap alleen zichtbaar bij invalid */
 .validation-message {
-  font-size: 0.85rem;
-  margin-top: 2px;
-  display: none;
-  color: var(--warning-color);
+    font-size: 0.85rem;
+    margin-top: 2px;
+    display: none;
+    color: var(--warning-color);
 }
+
 input.touched.invalid + .validation-message,
 select.touched.invalid + .validation-message,
 textarea.touched.invalid + .validation-message {
-  display: block;
+    display: block;
 }
-
