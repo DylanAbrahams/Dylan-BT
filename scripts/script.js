@@ -131,6 +131,27 @@ function generateBeneficiaries() {
     firstTab.classList.remove("inactive");
     firstTab.classList.add("active");
   }
+
+  // ⚡ Voeg touched validation toe aan nieuwe inputs
+  container.querySelectorAll("input, select, textarea").forEach(input => {
+    // Voeg span toe voor foutmelding als die nog niet bestaat
+    if (!input.nextElementSibling || !input.nextElementSibling.classList.contains("validation-message")) {
+      const span = document.createElement("span");
+      span.className = "validation-message";
+      span.style.color = "red";
+      span.style.display = "none";
+      input.after(span);
+    }
+
+    input.addEventListener("input", () => {
+      input.dataset.touched = true;
+      validateInput(input, false); // GEEN feedback tijdens typen
+    });
+    input.addEventListener("blur", () => {
+      input.dataset.touched = true;
+      validateInput(input, true); // feedback tonen bij blur
+    });
+  });
 }
 
 // =========================
@@ -283,7 +304,51 @@ hadWillRadios.forEach(radio => {
 });
 
 
+
 // =========================
 // BUTTON TRIGGER VOOR ERFGENAAM GENERATIE
 // =========================
-document.getElementById("generate-beneficiaries").addEventListener("click", generateBeneficiaries);
+function validateInput(input, showMessage) {
+  if (!input.dataset.touched) return; // nog niet ingetikt
+
+  if (input.type === "radio") return;
+
+  const message = input.nextElementSibling; // span.validation-message
+
+  if (input.checkValidity()) {
+    input.classList.remove("invalid");
+    input.classList.add("valid");
+    input.classList.add("touched");
+    if (message && showMessage) message.style.display = "none"; // geen feedback bij geldig
+  } else {
+    input.classList.remove("valid");
+    input.classList.add("invalid");
+    input.classList.add("touched");
+    if (message && showMessage) {
+      message.textContent = input.validationMessage || "❌ Ongeldig veld";
+      message.style.display = "block";
+    } else if (message) {
+      message.style.display = "none"; // verberg tekst tijdens typen
+    }
+  }
+}
+
+// Voeg event listeners toe
+function setupValidation(root = document) {
+  root.querySelectorAll("input, select, textarea").forEach(input => {
+    input.addEventListener("input", () => {
+      input.dataset.touched = true;
+      validateInput(input, false); // GEEN feedback tijdens typen
+    });
+    input.addEventListener("blur", () => {
+      input.dataset.touched = true;
+      validateInput(input, true); // feedback tonen bij blur
+    });
+  });
+}
+
+// Initialisatie
+document.addEventListener("DOMContentLoaded", () => {
+  setupValidation();
+});
+

@@ -221,7 +221,53 @@ Disabled buttons duidelijker maken met styling.
 Validatie !!!
 Maak duidelijk wanneer de gebruiker iets goed/fout invult. Ik ben van plan om dit te doen per vraag. Verder wil ik extra info bij elke vraag neerzetten.
 
+## Dag 5 (9 maart)
+### Gastcollege Rijk van Zanten
+Vandaag kwam een oud CMD student langs om te vertellen over zijn ervaring met CMD, wat hij daarna heeft gedaan en waar hij nu staat. Hij had wel een goed verhaal om te vertellen. Voor zijn afstudeerproject was hij naar New York gegaan en is daar gebleven tot de dag van vandaag. Wel een inspirerend verhaal.
 
+### Werkzaamheden
+Vandaag heb ik ten eerste onderdeel 4e en 4f volledig verwijdert uit mijn HTML. Die ga ik niet doen. Misschien doe ik nog hetzelfde voor bv. 4g maar voor nu laat ik het zo.
+
+Vandaag ben ik vooral bezig geweest met validatie. Ik heb nu voor elke input (behalve de radios) een span eronder waarin tekst komt te staan wanneer je een input invult. Ik heb voor een correct ingevulde input een groene kleur om de input heen zonder extra tekst erbij en wanneer je een fout antwoord indient een rode kleur met de error message van de input. Deze zijn voor mij in het Engels want mijn laptop is in het Engels ingesteld. Verder als je met een input interacteert en niet invult krijg je de error message te zien dat je niks hebt ingevuld. Ik moet wel nog ervoor zorgen dat het ook wordt toegepast wanneer de popup in beeld komt wanneer je op Volgende klikt. 
+
+Ik had extra code nodig om dit allemaal werkend te maken voor het tweede onderdeel per erfgename. Omdat dit onderdeel van het formulier gegenereerd wordt, is deze nog niet geladen wanneer de functie afspeelt. Ik heb dus in de functie waarin dit gegenereerd wordt ook de validatie functie opgeroepen.
+
+Daarnaast kun je nu niet meer naar de volgende pagina voordat je het aantal erfgenames hebt ingevuld. 
+
+
+### Weekly Geek #3 - What happened to text inputs
+
+Voor deze weekly geek moeten we een video kijken. Deze video heeft ook een transcript op de website en gaat over text inputs
+
+Wolf 1 - De Web gebruiker, wil graag duidelijk en simpel
+Wolf 2 - De Web designer, wil nieuwe dingen uitproberen
+
+Vormen van Signification - bv. Hyperlinks hebben een streep eronder
+
+Wat zijn er gebeurd met text inputs, ze zijn nu alleen maar een onderkant ipv een box. Het is nu eerder een "onput"
+Als er een label boven zit, is het niet eens duidelijk dat deze erbij hoort.
+
+Ipv terug gaan naar het goede oude methode, gaat hij verder met de nieuwe slechte methode om er creatief mee om te gaan
+> De labels zijn nu placeholders die in de input staan
+
+Om de placeholders zichtbaar te maken heeft hij ze wit gemaakt waardoor ze nu lijken op values...
+
+Double double down > De placeholder gaat omhoog zodat deze niet verwijderd wordt.
+
+Nu zijn er 3 soorten inputs en de oudste is de enige goede
+
+Het punt is dat er nieuwe designs worden gemaakt voor elementen die geen nieuwe design nodig hebben. Ik snap beide kanten wel. Uiteraard als gebruiker wil je liever geen verandering, vooral als er niks verkeerd was aan het oude ontwerp maar ik snap ook dat de designer meerdere ontwerpen wil uitproberen voor een product.
+
+### Checkout met Jacco & Aya
+Ik werd vandaag gerandomized met Choice, maar zij was niet aanwezig. Ik werd ingedeeld met Jacco. Aya had ook geen duo dus zij had zich ook bij ons toegevoegd
+Ik liet zien dat ik bezig was met validatie vandaag en dat ik morgen bezig wil zijn met met de rest van de logica.
+Aya eerst alles in 1 fieldset, nu opgedeeld. Vragen die zichtbaar worden
+
+
+## Dag 6 (10 maart)
+Vandaag waren begonnen met de Weekly Geek. We hadden een wooclap over de video.
+
+Geen validatie op radio buttons
 
 ## Bronnenlijst
 
@@ -248,3 +294,6 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/radio
 
 The Label element
 https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label
+
+What happened to text inputs?
+https://briefs.video/videos/what-happened-to-text-inputs/
