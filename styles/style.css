@@ -260,3 +260,4 @@ select.touched.invalid + .validation-message,
 textarea.touched.invalid + .validation-message {
   display: block;
 }
+

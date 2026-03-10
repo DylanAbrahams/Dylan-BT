@@ -125,8 +125,14 @@ function generateBeneficiaries() {
     container.appendChild(wrapper);
   }
 
-  // Eerste erfgenaam en eerste tab zichtbaar maken
-  const firstTab = container.querySelector(".beneficiary .tab");
+  // ⚡ Remove .active from all tabs on the page
+  document.querySelectorAll(".tab.active").forEach(tab => {
+    tab.classList.remove("active");
+    tab.classList.add("inactive");
+  });
+
+  // ⚡ Activate only the first tab of the first beneficiary
+  const firstTab = container.querySelector(".beneficiary:first-child .tab");
   if (firstTab) {
     firstTab.classList.remove("inactive");
     firstTab.classList.add("active");
@@ -134,7 +140,6 @@ function generateBeneficiaries() {
 
   // ⚡ Voeg touched validation toe aan nieuwe inputs
   container.querySelectorAll("input, select, textarea").forEach(input => {
-    // Voeg span toe voor foutmelding als die nog niet bestaat
     if (!input.nextElementSibling || !input.nextElementSibling.classList.contains("validation-message")) {
       const span = document.createElement("span");
       span.className = "validation-message";
@@ -352,3 +357,23 @@ document.addEventListener("DOMContentLoaded", () => {
   setupValidation();
 });
 
+const container = document.getElementById("beneficiaries-container");
+const template = document.getElementById("beneficiary-template");
+
+if (container && template && container.innerHTML.trim() !== "") {
+  // Put the content into the template
+  template.innerHTML = container.innerHTML;
+
+  // Clear container immediately so it won't flash
+  container.innerHTML = "";
+}
+
+// =========================
+// DOMContentLoaded initializations
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+  setupValidation();
+
+  // Initialize first beneficiary if needed
+  generateBeneficiaries();
+});
