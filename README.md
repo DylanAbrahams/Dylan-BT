@@ -277,6 +277,33 @@ Ik heb vandaag besloten om nog een paar onderdelen te schrappen. Dit zijn allema
 ### Checkout met Arvid
 Ik werd vandaag gerandomized met Arvid. Hij is vandaag met validatie en progressive disclosure bezig geweest. Volgende week is de laatste week. Ik ben van plan om de laatste week iig de desktop versie compleet te maken. Verder wil nog wat progressive enhancement dingen toevoegen voor meerdere erfgenames. Daarnaast kan er altijd nog wat verduidelijking bij de vragen en validatie.
 
+
+## Week 3 Overzicht
+
+
+
+
+Niet duidelijk dat je verder moet scrollen
+
+Volgende week focussen op
+Styling disabled buttons
+Responsiviteit / Styling Desktop
+Max-height waarschijnlijk eruit halen
+
+Tijd over:
+Eindpagina die je terugbrengt naar de tabs die je nog goed hebt ingevuld (mag ook fictief)
+
+
+## Dag 7 ()
+
+## Dag 8 ()
+ 
+## Week 4 Overzicht
+
+## Eindreflectie
+
+
+
 ## Bronnenlijst
 
 NS Tractie - 
