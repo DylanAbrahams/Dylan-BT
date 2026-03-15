@@ -279,20 +279,36 @@ Ik werd vandaag gerandomized met Arvid. Hij is vandaag met validatie en progress
 
 
 ## Week 3 Overzicht
+Deze week ben ik vooral bezig geweest met validatie en progressive enhancements. Verder heb ik een aantal vragen geschrapt in het balang van kwaliteit over kwantiteit. Een aantal vragen/inputs die in onderdeel 4 van het erfbelasting staan hadden extra logica nodig, voornamelijk logica die ik al heb maar wel meer werk oplevert, waarvan ik de toegevoegde waarde niet echt in zie en liever wil focussen op andere aspecten van het formulier zoals het structuur, de validatie en de logica voor meerdere erfgenames.
 
+Ik ben elke inputs langs gegaan in mijn HTML en heb een span toegevoegd aan elke input die verplicht is in te vullen. Wanneer deze niet goed is ingevuld wordt de span zichtbaar met de standaard tekst die je krijgt bij validatie. Voor mij is de tekst in het Engels omdat mijn laptop taal Engels is geselecteert. Verder krijgt elke input een groene kleur wanneer deze correct is ingevuld en een rode kleur wanneer deze incorrect is ingevuld. De feedback komt in beeld wanneer je niet langer gefocust bent op de input. Je krijgt de input dus niet meteen al te zien zodra je de eerste letter hebt getypt. Dit lijkt me een goed moment om feedback te geven aangezien de gebruiker dan klaar zou zijn met het invullen van de vraag. 
 
+<img src="img/readme-img/week3-validatie.png" alt="Afbeelding van week 3 validatie wel/niet ingevuld" height=400>
+<img src="img/readme-img/week3-bsn-validatie.png" alt="Afbeelding van week 3 validatie op bsn" height=400>
 
+Ik had vorige week al werkende code voor disabled buttons, maar ik had nog wat extra logica nodig om dit ook werkend te krijgen op de pagina's voor elke erfgename. Het kwam erop neer dat de paginas later genereerd zou worden en de logica voor de knoppen niet meer gelezen wordt. Ik moest de functie in JavaScript nog oproepen wanneer de pagina's worden gegenereerd. Ditzelfde geldt ook voor de validatie op de pagina's die gegenereerd worden.
 
-Niet duidelijk dat je verder moet scrollen
+<img src="img/readme-img/week3-disabled-per-erfgename.png" alt="Afbeelding van week 3 disabled buttons per erfgename" height=400>
 
-Volgende week focussen op
-Styling disabled buttons
-Responsiviteit / Styling Desktop
-Max-height waarschijnlijk eruit halen
+Op deze pagina kun je de relatie van de erfgename invullen. In het formulier staat een waarschuwing voor wanneer je een kind met een handicap invult. Ik heb wat extra styling gedaan zodat dit er goed uitzag en dat het duidelijk was bij welke vraag deze tekst hoort. 
 
-Tijd over:
-Eindpagina die je terugbrengt naar de tabs die je nog goed hebt ingevuld (mag ook fictief)
-Progressiebalk
+<img src="img/readme-img/week3-radio-relatie.png" alt="Afbeelding van week 3 relatie erfgename" height=400>
+
+Verder ben ik deze week nog veel bezig geweest met progressive enhancement. Ik had al dat alle tabs zichtbaar zijn als er geen JavaScript wordt gelezen. Alleen wanneer er JavaScript is krijgen alle tabs een active/inactive class. Het probleem was dat alleen de eerste 6 pagina's zichtbaar waren, omdat de rest nog gegenereerd moest worden. De overige pagina's zitten in de HTML in een template element. Een template is niet standaard zichtbaar. Wat ik heb gedaan om dit op te lossen is een div maken met alle HTML erin wat in het template stond met een lege template ernaast. Deze is zichtbaar wanneer er geen JavaScript is. Wanneer JavaScript wel aan staat, wordt alle inhoud van die div in de template geplaatst en vervolgens gedupliceert. Nu werkt de code nog als eerst en zijn alle vragen zichtbaar zonder JavaScript. Je kan alleen elke vraag maar 1 keer invullen (dus niet per erfgename) dus ik ga er nog een tekst bij zetten die alleen zichtbaar is zonder JS die uitlegt dat je meerdere formulieren moet verzenden als je meerdere erfgenames wil inschrijven
+
+<img src="img/readme-img/week3-progressive-enhancement.png" alt="Afbeelding van week 3" height=400>
+
+Ik heb vrijdag het gesprek gehad met mijn clubje. Vasilis vond dat ik al veel heb gedaan en dat ik kan afronden. Het belangrijkste stuk feedback dat ik heb gekregen is dat het niet duidelijk dat je verder moet scrollen per tab aangezien de Volgende knop op een vaste plek staat. Omdat ik met progressive enhancement nog een oplossing nodig had om zonder JavaScript niet per tab wil laten scrollen is de meest effectieve en ook makkelijke keuze om de max-height van een tab eruit te halen.
+
+Volgende week wil ik nog focussen op:
+- Styling disabled buttons
+- Responsiviteit / Styling Desktop
+- Max-height waarschijnlijk eruit halen
+- Extra info voor progressive enhancement
+
+Als er nog tijd over is:
+- Eindpagina die je terugbrengt naar de tabs die je nog goed hebt ingevuld (mag ook fictief)
+- Progressiebalk
 
 
 ## Dag 7 ()
