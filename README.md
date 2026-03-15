@@ -292,6 +292,7 @@ Max-height waarschijnlijk eruit halen
 
 Tijd over:
 Eindpagina die je terugbrengt naar de tabs die je nog goed hebt ingevuld (mag ook fictief)
+Progressiebalk
 
 
 ## Dag 7 ()
