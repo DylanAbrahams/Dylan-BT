@@ -1,18 +1,40 @@
 // Deze code is gebaseerd op code van W3Schools
 // Link: https://www.w3schools.com/howto/howto_js_form_steps.asp
 
+
+
 // =========================
 // INIT
 // =========================
-let currentTab = 0;
-showTab(currentTab);
 
-// Zet hoofdletters automatisch
-document.querySelectorAll(".caps").forEach(input => {
-  input.addEventListener("input", function () {
-    this.value = this.value.toUpperCase();
-  });
+let currentTab = 0;
+
+const warnings = document.querySelectorAll(".no-js-warning");
+warnings.forEach(warning => {
+  warning.style.display = "none";
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  setupValidation();
+  generateBeneficiaries();
+  showTab(currentTab); // pas hier tabs activeren
+  document.querySelectorAll('fieldset.disabled').forEach(fieldset => {
+    fieldset.disabled = true;
+  });
+  document.querySelectorAll(".caps").forEach(input => {
+    input.addEventListener("input", () => input.value = input.value.toUpperCase());
+  });
+  toggleFieldset(marriedFieldset, false);
+  marrageRecordedFieldsets.forEach(f => toggleFieldset(f, false));
+  toggleFieldset(childrenDeceasedFieldset, false);
+  toggleFieldset(childrenLastFieldset, false);
+  toggleFieldset(willDetailsFieldset, false);
+});
+
+
+
+
+
 
 // =========================
 // TAB FUNCTIES
@@ -20,12 +42,10 @@ document.querySelectorAll(".caps").forEach(input => {
 function showTab(n) {
   const tabs = document.getElementsByClassName("tab");
 
-  for (let i = 0; i < tabs.length; i++) {
-    tabs[i].classList.remove("active", "inactive");
-    if (i !== n) tabs[i].classList.add("inactive");
-  }
-
-  tabs[n].classList.add("active");
+  Array.from(tabs).forEach((tab, i) => {
+    tab.classList.toggle("active", i === n);
+    tab.classList.toggle("inactive", i !== n);
+  });
 
   // Vorige knop tonen/verbergen
   document.getElementById("prevBtn").style.display = n === 0 ? "none" : "inline";
@@ -90,9 +110,9 @@ function changeTab(n) {
   currentTab += n;
   if (currentTab < 0) currentTab = 0;
   if (currentTab >= tabs.length) {
-    showBeneficiariesSummary();
+    submitForm(); // direct verzenden
     return;
-  }
+}
 
   showTab(currentTab);
 
@@ -100,6 +120,14 @@ function changeTab(n) {
   const currentTabElement = tabs[currentTab];
   focusFirstElement(currentTabElement);
 }
+
+
+
+
+
+
+
+
 
 // =========================
 // ERFGENAAM FUNCTIES
@@ -196,25 +224,15 @@ function generateBeneficiaries() {
   }
 
   // Voeg touched validation toe aan nieuwe inputs
-  container.querySelectorAll("input, select, textarea").forEach(input => {
-    if (!input.nextElementSibling || !input.nextElementSibling.classList.contains("validation-message")) {
-      const span = document.createElement("span");
-      span.className = "validation-message";
-      span.style.color = "red";
-      span.style.display = "none";
-      input.after(span);
-    }
-
-    input.addEventListener("input", () => {
-      input.dataset.touched = true;
-      validateInput(input, false); // GEEN feedback tijdens typen
-    });
-    input.addEventListener("blur", () => {
-      input.dataset.touched = true;
-      validateInput(input, true); // feedback tonen bij blur
-    });
-  });
+  setupValidation(container);
 }
+
+
+
+
+
+
+
 
 // =========================
 // MODALS
@@ -237,38 +255,6 @@ window.addEventListener("click", function (event) {
   if (event.target === modal) closePopup();
 });
 
-function showBeneficiariesSummary() {
-  const container = document.getElementById("beneficiaries-list");
-  container.innerHTML = "";
-
-  // Overledene naam
-  const firstName = document.querySelector('input[name="deceased-initals"]')?.value.trim() || "";
-  const infix = document.querySelector('input[name="deceased-infix"]')?.value.trim() || "";
-  const lastName = document.querySelector('input[name="deceased-last-name"]')?.value.trim() || "";
-  const deceasedFullName = [firstName, infix, lastName].filter(Boolean).join(" ");
-  if (deceasedFullName) container.innerHTML = `<div><strong>Overledene:</strong> ${deceasedFullName}</div>`;
-
-  // Erfgenamen
-  const beneficiaries = document.querySelectorAll(".beneficiary");
-  beneficiaries.forEach((ben, index) => {
-    const initials = ben.querySelector('input[name="beneficiary-initials"]')?.value.trim() || "";
-    const lastName = ben.querySelector('input[name="beneficiary-last-name"]')?.value.trim() || "";
-    if (initials || lastName) {
-      const div = document.createElement("div");
-      div.textContent = `Erfgenaam ${index + 1}: ${initials} ${lastName}`;
-      container.appendChild(div);
-    }
-  });
-
-  if (!container.hasChildNodes()) {
-    const div = document.createElement("div");
-    div.textContent = "Geen erfgenamen gevonden.";
-    container.appendChild(div);
-  }
-
-  document.getElementById("summaryModal").style.display = "flex";
-}
-
 function closeSummary() {
   document.getElementById("summaryModal").style.display = "none";
 }
@@ -277,11 +263,28 @@ function submitForm() {
   document.getElementById("erfbelastingForm").submit();
 }
 
+
+
+
+
+
+
+
 // =========================
-// DYNAMISCHE VELDEN
+// DYNAMISCHE VELDEN / DISABLED RADIO BUTTONS
 // =========================
 
-// ONDERDEEL 1B
+function toggleFieldset(fieldset, enabled) {
+  fieldset.disabled = !enabled;
+  fieldset.querySelectorAll('input').forEach(i => {
+    if (!enabled) {
+      if (i.type === 'radio' || i.type === 'checkbox') i.checked = false;
+      else i.value = '';
+    }
+  });
+}
+
+// --- ONDERDEEL 1B: huwelijk ---
 const marriedRadios = document.querySelectorAll('input[name="married-radio"]');
 const marriedFieldset = document.getElementById("married");
 const marrageRecordedRadios = document.querySelectorAll('input[name="marrage-recorded-radio"]');
@@ -289,84 +292,48 @@ const marrageRecordedFieldsets = document.querySelectorAll('#marrage-recorded');
 
 marriedRadios.forEach(radio => {
   radio.addEventListener("change", () => {
-    if (radio.value === "yes" && radio.checked) {
-      marriedFieldset.disabled = false;
-    } else {
-      marriedFieldset.disabled = true;
+    toggleFieldset(marriedFieldset, radio.checked && radio.value === "yes");
+    if (!radio.checked || radio.value !== "yes") {
+      // disable marriage recorded als huwelijk "nee" is
       marrageRecordedRadios.forEach(r => r.checked = false);
-      marrageRecordedFieldsets.forEach(f => {
-        f.disabled = true;
-        f.querySelectorAll('input').forEach(i => i.value = "");
-        f.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-      });
+      marrageRecordedFieldsets.forEach(f => toggleFieldset(f, false));
     }
   });
 });
 
 marrageRecordedRadios.forEach(radio => {
   radio.addEventListener("change", () => {
-    if (radio.value === "yes" && radio.checked) {
-      marrageRecordedFieldsets.forEach(f => f.disabled = false);
-    } else {
-      marrageRecordedFieldsets.forEach(f => {
-        f.disabled = true;
-        f.querySelectorAll('input').forEach(i => i.value = "");
-        f.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-      });
-    }
+    marrageRecordedFieldsets.forEach(f => toggleFieldset(f, radio.checked && radio.value === "yes"));
   });
 });
 
-// ONDERDEEL 1C
+// --- ONDERDEEL 1C: kinderen ---
 const childrenRadios = document.querySelectorAll('input[name="children-radio"]');
 const childrenDeceasedFieldset = document.getElementById("children-deceased");
 const childrenLastFieldset = document.getElementById("children-last");
 
 childrenRadios.forEach(radio => {
   radio.addEventListener("change", () => {
-    if (radio.value === "yes" && radio.checked) {
-      childrenDeceasedFieldset.disabled = false;
-    } else {
-      childrenDeceasedFieldset.disabled = true;
-      childrenLastFieldset.disabled = true;
-      childrenDeceasedFieldset.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-      childrenLastFieldset.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-    }
+    toggleFieldset(childrenDeceasedFieldset, radio.checked && radio.value === "yes");
+    if (!radio.checked || radio.value !== "yes") toggleFieldset(childrenLastFieldset, false);
   });
 });
 
 const childrenDeceasedRadios = document.querySelectorAll('input[name="children-deceased-radio"]');
 childrenDeceasedRadios.forEach(radio => {
-  radio.addEventListener("change", () => {
-    if (radio.value === "yes" && radio.checked) {
-      childrenLastFieldset.disabled = false;
-    } else {
-      childrenLastFieldset.disabled = true;
-      childrenLastFieldset.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-    }
-  });
+  radio.addEventListener("change", () => toggleFieldset(childrenLastFieldset, radio.checked && radio.value === "yes"));
 });
 
-// ONDERDEEL 1D
+// --- ONDERDEEL 1D: testament ---
 const hadWillRadios = document.querySelectorAll('input[name="had-will-radio"]');
 const willDetailsFieldset = document.querySelector('.will-details');
 
 hadWillRadios.forEach(radio => {
-  radio.addEventListener("change", () => {
-    if (radio.value === "yes" && radio.checked) {
-      willDetailsFieldset.disabled = false;
-    } else {
-      willDetailsFieldset.disabled = true;
-      willDetailsFieldset.querySelectorAll('input').forEach(i => {
-        if (i.type === "radio" || i.type === "checkbox") i.checked = false;
-        else i.value = "";
-      });
-    }
-  });
+  radio.addEventListener("change", () => toggleFieldset(willDetailsFieldset, radio.checked && radio.value === "yes"));
 });
 
 
-// ONDERDEEL 4D
+
 
 
 
@@ -412,28 +379,17 @@ function setupValidation(root = document) {
   });
 }
 
-// Initialisatie
-document.addEventListener("DOMContentLoaded", () => {
-  setupValidation();
-});
 
+// Deze code is voor het gelijk genereren van de eerste erfgename voor een accuraat progressiebalk/paginering
 const container = document.getElementById("beneficiaries-container");
 const template = document.getElementById("beneficiary-template");
-
 if (container && template && container.innerHTML.trim() !== "") {
-  // Put the content into the template
+  // Content plaatsen in de template
   template.innerHTML = container.innerHTML;
 
-  // Clear container immediately so it won't flash
+  // Onmiddelijk de container legen
   container.innerHTML = "";
 }
 
-// =========================
-// DOMContentLoaded initializations
-// =========================
-document.addEventListener("DOMContentLoaded", () => {
-  setupValidation();
 
-  // Initialize first beneficiary if needed
-  generateBeneficiaries();
-});
+

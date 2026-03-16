@@ -98,7 +98,7 @@
                 </fieldset>
 
                 <!-- Vraag 2 -->
-                <fieldset id="married" disabled>
+                <fieldset id="married" class="disabled">
                     <legend>Hadden de overledene en diens echtgenoot of geregistreerde partner huwelijkse of
                         partnerschapsvoorwaarden laten vastleggen in een notariële akte?</legend>
                     <label>
@@ -112,7 +112,7 @@
                 </fieldset>
 
                 <!-- Vraag 3 -->
-                <fieldset id="marrage-recorded" disabled>
+                <fieldset id="marrage-recorded" class="disabled">
                     <legend>Hadden de overledene en diens partner een finaal verrekenbeding?</legend>
                     <label>
                         <input required type="radio" name="settlement-clause" value="no">
@@ -125,7 +125,7 @@
                 </fieldset>
 
                 <!-- Vraag 4 -->
-                <fieldset id="marrage-recorded" disabled>
+                <fieldset id="marrage-recorded" class="disabled">
                     <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
                     <label>Dag
                         <input required type="number" name="date-of-marrage" min="1" max="31" placeholder="DD">
@@ -160,7 +160,7 @@
                 </fieldset>
 
                 <!-- Vraag 2 -->
-                <fieldset id="children-deceased" disabled>
+                <fieldset id="children-deceased" class="disabled">
                     <legend>Is 1 van deze kinderen eerder overleden dan de overledene voor wie u nu aangifte doet?
                     </legend>
                     <label>
@@ -174,7 +174,7 @@
                 </fieldset>
 
                 <!-- Vraag 3 -->
-                <fieldset id="children-last" disabled>
+                <fieldset id="children-last" class="disabled">
                     <legend>Had dit overleden kind zelf kinderen?</legend>
                     <label>
                         <input required type="radio" name="deceased-child-had-children" value="no">
@@ -206,7 +206,7 @@
                 </fieldset>
 
                 <!-- Overige vragen -->
-                <fieldset class="will-details" disabled>
+                <fieldset class="will-details" class="disabled">
                     <legend>Vul de gegevens in van de notaris die het testament heeft opgemaakt en de datum van het
                         testament.</legend>
 
@@ -264,6 +264,9 @@
                 <p>We hebben nu alle informatie over de overledene verzameld. In de volgende secties gaan we de gegevens
                     invullen van de verkrijgers, hun relatie tot de overledene en de erfstukken.</p>
                 <p>Hoeveel erfgenamen wilt u invullen?</p>
+                <p class="no-js-warning"><strong>Let op! </strong>U heeft geen werkende JavaScript en kunt helaas niet
+                    meerdere forumulieren genereren. U bent toegestaan om het formulier meerdere keren te verzenden.
+                </p>
                 <label>
                     Aantal erfgenamen:
                     <input requierd type="number" id="num-beneficiaries" min="1" max="100" value="1">
@@ -455,7 +458,8 @@
                             Kind met handicap
                         </label>
                         <p class="label-warning"><strong>Let op!</strong> Kruis dit hokje alleen aan als het kind
-                            voldoet aan de voorwaarden voor een speciale vrijstelling. Zie de begrippenlijst van de toelichting.</p>
+                            voldoet aan de voorwaarden voor een speciale vrijstelling. Zie de begrippenlijst van de
+                            toelichting.</p>
 
                         <label>
                             <input required type="radio" name="relationship-deceased" value="foster-child">
@@ -513,7 +517,7 @@
                                 <input type="radio" name="forced-share" value="yes"> Ja
                             </label>
 
-                            <fieldset id="forced-share-fieldset" disabled>
+                            <fieldset id="forced-share-fieldset" class="disabled">
                                 <legend>Waarde van de legitieme portie (€)</legend>
                                 <label>
                                     <input type="number" name="forced-share-worth" step="0.01" min="0">
@@ -579,7 +583,7 @@
 
 
             <!-- Einde -->
-            <fieldset class="tab">
+            <fieldset class="tab ending">
                 <legend>Bedankt voor het invullen!</legend>
                 <p>Klik op verzenden om het formulier in te dienen.</p>
             </fieldset>
@@ -600,15 +604,6 @@
                     <button type="button" onclick="closePopup()">Blijven op pagina</button>
                     <button type="button" onclick="proceedAnyway()">Toch doorgaan</button>
                 </div>
-            </div>
-        </div>
-
-        <div id="summaryModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeSummary()">&times;</span>
-                <h2>Overzicht erfgenamen</h2>
-                <div id="beneficiaries-list"></div>
-                <button type="button" onclick="submitForm()">Formulier verzenden</button>
             </div>
         </div>
 
