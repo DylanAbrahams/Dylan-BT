@@ -65,6 +65,12 @@ legend {
     color: var(--secondary-color);
 }
 
+legend::before {
+  content: attr(data-beneficiary);
+  font-weight: bold;
+  margin-right: 0.5em;
+}
+
 .tab > legend {
     font-size: 1.4em;
 }
@@ -175,6 +181,7 @@ input[type="file"] {
 .button-row {
     display: flex;
     justify-content: flex-end;
+    align-items:center;
     width: 100%;
 }
 
@@ -308,4 +315,25 @@ fieldset:disabled input[type="checkbox"] {
 
 .no-js-warning {
     color:var(--warning-color);
+}
+
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background-color: var(--certiary-color);
+  border-radius: 100em;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--primary-color);
+  transition: width 0.4s ease-in-out; 
+  border-radius: 100em;
+}
+
+#missing-fields-overview {
+    color:var(--warning-color); 
+    margin-top:1em;
 }

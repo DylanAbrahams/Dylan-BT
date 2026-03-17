@@ -31,8 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
   toggleFieldset(willDetailsFieldset, false);
 });
 
+// Deze code is voor het gelijk genereren van de eerste erfgename voor een accuraat progressiebalk
+const container = document.getElementById("beneficiaries-container");
+const template = document.getElementById("beneficiary-template");
+if (container && template && container.innerHTML.trim() !== "") {
+  // Content plaatsen in de template
+  template.innerHTML = container.innerHTML;
 
-
+  // Onmiddelijk de container legen
+  container.innerHTML = "";
+}
 
 
 
@@ -41,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // =========================
 function showTab(n) {
   const tabs = document.getElementsByClassName("tab");
+  const totalTabs = tabs.length;
+  const midPoint = 6; // tab 6 = 50% progress
 
   Array.from(tabs).forEach((tab, i) => {
     tab.classList.toggle("active", i === n);
@@ -52,11 +62,39 @@ function showTab(n) {
 
   // Tekst van volgende knop
   document.getElementById("nextBtn").innerHTML =
-    n === tabs.length - 1 ? "Verzenden" : "Volgende";
+    n === totalTabs - 1 ? "Verzenden" : "Volgende";
 
-  // Paginator
-  const paginator = document.querySelector(".paginator");
-  if (paginator) paginator.textContent = `Pagina ${n + 1}/${tabs.length}`;
+  // Progressbar per tab
+  const currentTabElement = tabs[n];
+  const progressBars = currentTabElement.querySelectorAll(".progress-bar");
+
+  // Bereken niet-lineaire progress
+  let progressPercent = 0;
+
+  if (n < midPoint) {
+    // eerste helft: 0 → 50%
+    progressPercent = ((n + 1) / midPoint) * 50;
+  } else {
+    // tweede helft: 50 → 100%
+    const remainingTabs = totalTabs - midPoint;
+    if (remainingTabs > 0) {
+      progressPercent = 50 + ((n + 1 - midPoint) / remainingTabs) * 50;
+    } else {
+      progressPercent = 100;
+    }
+  }
+
+  // Beperk progress tot 0–100%
+  progressPercent = Math.min(Math.max(progressPercent, 0), 100);
+
+  // Update alle progressbars in deze tab
+  progressBars.forEach(bar => {
+    bar.style.width = progressPercent + "%";
+  });
+
+  if (currentTabElement.classList.contains("ending")) {
+    showMissingFields();
+  }
 }
 
 function nextPrev(n) {
@@ -112,7 +150,7 @@ function changeTab(n) {
   if (currentTab >= tabs.length) {
     submitForm(); // direct verzenden
     return;
-}
+  }
 
   showTab(currentTab);
 
@@ -130,7 +168,7 @@ function changeTab(n) {
 
 
 // =========================
-// ERFGENAAM FUNCTIES
+// ERFGENAMES GENEREREN
 // =========================
 function generateBeneficiaries() {
   const num = parseInt(document.getElementById("num-beneficiaries").value);
@@ -147,6 +185,12 @@ function generateBeneficiaries() {
     // Voeg alle tabs toe en zet ze inactive
     clone.querySelectorAll(".tab").forEach(tab => {
       tab.classList.add("inactive");
+
+      const legend = tab.querySelector("legend");
+      if (legend) {
+        legend.dataset.beneficiary = `Erfgename #${i} -`;
+      }
+
       wrapper.appendChild(tab);
     });
 
@@ -338,7 +382,7 @@ hadWillRadios.forEach(radio => {
 
 
 // =========================
-// BUTTON TRIGGER VOOR ERFGENAAM GENERATIE
+// VALIDATIE
 // =========================
 function validateInput(input, showMessage) {
   if (!input.dataset.touched) return; // nog niet ingetikt
@@ -379,17 +423,76 @@ function setupValidation(root = document) {
   });
 }
 
+// =========================
+// EINDPAGINA MISSENDE VELDEN
+// =========================
 
-// Deze code is voor het gelijk genereren van de eerste erfgename voor een accuraat progressiebalk/paginering
-const container = document.getElementById("beneficiaries-container");
-const template = document.getElementById("beneficiary-template");
-if (container && template && container.innerHTML.trim() !== "") {
-  // Content plaatsen in de template
-  template.innerHTML = container.innerHTML;
+function showMissingFields() {
+  const overview = document.getElementById("missing-fields-overview");
+  overview.innerHTML = "";
 
-  // Onmiddelijk de container legen
-  container.innerHTML = "";
+  const form = document.getElementById("erfbelastingForm");
+  const tabs = form.querySelectorAll("fieldset.tab");
+  const results = []; 
+
+  tabs.forEach(tab => {
+    const missing = [];
+
+    // Loop door alle actieve (niet-disabled) fieldsets
+    tab.querySelectorAll("fieldset:not([disabled])").forEach(fs => {
+      const inputs = [...fs.querySelectorAll("[required]")].filter(i => !i.disabled);
+
+      inputs.forEach(input => {
+        // Voor de radio inputs legends
+        if (["radio", "checkbox"].includes(input.type)) {
+          const group = fs.querySelectorAll(`[name="${input.name}"]`);
+          if (![...group].some(i => i.checked)) {
+            const text = fs.querySelector("legend")?.textContent.trim() || input.name;
+            if (!missing.includes(text)) missing.push(text);
+          }
+          // Voor de rest labels
+        } else if (!input.value) {
+          let text = input.closest("label")?.cloneNode(true);
+
+          // Verwijder de validation message
+          if (text) {
+            text.querySelectorAll("span").forEach(s => s.remove());
+            text = text.textContent.trim();
+          }
+
+          // Als er geen label is, gebruik dan legend/name
+          if (!text) text = fs.querySelector("legend")?.textContent.trim() || input.name;
+
+          if (!missing.includes(text)) missing.push(text);
+        }
+      });
+    });
+
+    // Als er missende velden zijn in deze tab
+    if (missing.length) {
+      let title = tab.querySelector("legend")?.textContent.trim() || "Stap";
+
+      // Check of dit 1 van de gegenereerde tabs is
+      const wrapper = tab.closest("#beneficiaries-container .beneficiary");
+
+      if (wrapper) {
+        const i = [...wrapper.parentNode.children].indexOf(wrapper) + 1;
+        title = `Erfgename #${i} - ${title}`;
+      }
+      results.push({ title, items: missing });
+    }
+  });
+
+  if (!results.length) return;
+  overview.innerHTML = "<p><strong>U heeft de volgende vragen nog niet ingevuld:</strong></p>";
+
+  // Render alle resultaten
+  results.forEach(r => {
+    overview.innerHTML += `
+      <strong>${r.title}</strong>
+      <ul>
+        ${r.items.map(i => `<li>${i}</li>`).join("")}
+      </ul>
+    `;
+  });
 }
-
-
-

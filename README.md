@@ -311,11 +311,35 @@ Als er nog tijd over is:
 - Progressiebalk
 
 
-## Dag 7 ()
+## Dag 7 (16 maart)
+### Werkzaamheden
+Vandaag was het mijn doel om mijn feedback te verwerken van afgelopen vrijdag, de styling voor desktop goed te zetten en om de versie zonder JavaScript goed te zetten. Ik heb als eerste de max-height van elke tab fieldset gehaald. Vasilis had een goed punt over dat het niet duidelijk is voor mensen dat je naar beneden moet scrollen omdat de knop al in beeld was. Nu moet je dus ook naar onder scrollen om uberhaupt de knop te zien. Nu ziet de versie zonder JavaScript er ook mooi uit. Het enige wat ik wel moest doen is een minimum height zetten op de tab zodat pagina's met weinig tekst/vragen nog wat witruimte hebben en de knoppen wel onderin het scherm te zien zijn.
 
-## Dag 8 ()
+Verder heb ik voor progressive enhancement nog een extra tekst bij de tusseninstructie gezet die alleen maar zichtbaar is wanneer er geen JavaScript wordt gelezen. Hier wordt uitgelegd dat de gebruiker niet meerdere formulieren kan genereren per erfgename en dat hij/zij handmatig meerdere formulieren mag verzenden. Ook was er nog een overzicht want de disabled buttons bleven nog disabled als er geen script werd geladen. Nu hebben ze allemaal een class disabled waardoor ze zonder script normaal werken. In het script wordt er geregeld dat alle fieldsets met de disabled class daadwerkelijk disabled worden en vervolgens met de bijhorende radios enabled worden.
+
+Ik ben vandaag ook bezig geweest met responsiviteit/desktop styling. Ik heb de form een max width van 45em gegeven. De width is 80vw. Dit betekent dat er op mobiel formaat het formulier bijna de volledig breedte inneemt en op desktop een vaste grootte heeft van 45em. Daarnaast heb ik ditzelfde gedaan voor de popup voor elke validatie. Nu ziet de website er op desktop ook goed uit.
+
+Vervolgens ben ik bezig geweest met de styling van disabled buttons. Elke fieldset die disabled is krijgt aparte styling. De kleuren van de legends, labels en inputs worden grijs en de cursor wordt een not-allowed symbool. Nu is het een stuk duidelijker dat de buttons niet interacteerbaar zijn.
+
+Ten slotte ben ik nog bezig geweest met mijn JavaScript code verschonen. Er zat veel dubbele/overbodige code in en het is gelukt om het script met bijna 100 regels te verkleinen. Daarnaast is het script ook een stuk logischer opgedeeld met als volgorde: de init, de tabs, het genereren van erfgenames, de popups/verzending, de radio buttons die waardoor vragen enabled worden, de validatie.
+
+### Checkout met Teun
+Vandaag werd ik gerandomized met Kerr, wie al naar huis was. Ik ben samengevoegd met Teun. Ik heb hem laten zien wat ik heb en wat ik nog wil doen morgen. Morgen wil ik nog een einde maken voor het formulier en een progressiebalk toevoegen waarin je kan zien hoever je in het proces bent. Misschien ook nog per erfgename laten zien om welke het gaat. Teun is zelf ook in de afrondingfase. Hij moet nog een paar bugs oplossen waaronder styling voor disabled labels. Morgen is de laatste dag voor mij voor BT aangezien ik heel woensdag en donderdag aan CSS wil zitten.
+
+## Dag 8 (17 maart)
+Vandaag is de laatste dag die ik wil besteden aan BT. Helaas begon de dag niet al te best. Ik had me in de ochtend verslapen en zou wat later op school komen. Ik rij altijd met de auto naar Nieuw-Vennep station om vanaf daar de trein te pakken. Toen ik daar aankwam waren er geen parkeerplaatsen meer beschikbaar. Na 20m wachten had ik besloten om de laatste loodjes vanuit huis te leggen.
+
+Op de laatste dag heb ik een progressie bar gemaakt waaraan je kan zien hoe lang je nog ongeveer bezig bent met het invullen van het formulier. Ik heb hem geel gemaakt in de huiskleur van NS. Ik heb ervoor gekozen om hem bovenin te plaatsen onder de titel. Ik vond onderin niet heel mooi want je zou steeds moeten scrollen om hem te kunnen zien en helemaal boven vond ik ook niet passen want dan staat hij te ver buiten het formulier. Het probleem is wel dat ik hem nu onder de titel heb, wat betekent dat hij in het tab zit. Ik heb in elke individuele tab de HTML voor de progress bar gezet en logica gegeven dat elke progress bar dynamisch updatet wanneer er van pagina wordt gewisselt. 
+
+Er zit helaas geen animatie op de progress bar. Omdat elke pagina een andere progressbar heeft is mij dat niet gelukt. Verder was er nog een probleem. Als ik meer paginas ga genereren zou de progressiebalk halverwege niet hetzelfde zijn. Je zou met bv. 1 erfgename bij de tusseninstructie op de helft zijn maar bij bv. 10 zou je de balk ineens van 50 naar ~10% springen. Om dit op te lossen heb ik logica geschreven om tab 6 als middenpunt te definieren. Tab 6 is de tusseninstructie. De eerste 6 tabs zullen dan de eerste 50% van de progressiebalk opvullen. De rest dan de overige 50%, ongeacht hoeveel paginas het zijn.
+
+Verder heb ik voor het gegenereerde onderdeel een ::before aan de titel toegevoegd die laat zien voor welke erfgename je aan het invullen bent. Je begint bij erfgename #1, dan #2 etc. 
+
+Als laatste heb ik op de laatste pagina nog wat toegevoegd. Als je alles hebt ingevuld zie je "Bedankt voor het invullen" en kun je alles verzenden, maar als je nog velden hebt gemist komt er in rode tekst te staan dat je nog wat niet hebt ingevuld met een overzicht van alle niet ingevulde velden. Dit heeft nog het langste geduurd, want ik moest rekening houden met disabled buttons, de knoppen die wel/niet required zijn, de inputs die wel/geen label hebben om degene zonder label een legend te geven en om radios altijd door de legend te laten noemen. Voor die specifieke eisen heb ik wel Chat gebruikt door mijn code op te sturen en vertellen welke tekst  wel/niet in beeld komt. 
  
 ## Week 4 Overzicht
+Deze week heb ik de laatste loodjes gelegd. Ik heb me veel gefocust op validatie, progressive enhancements, de laatste paar functies en het opschonen van mijn code. 
+
 
 ## Eindreflectie
 
@@ -349,3 +373,5 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label
 
 What happened to text inputs?
 https://briefs.video/videos/what-happened-to-text-inputs/
+
+ChatGPT - Specifieke inputs missende velden

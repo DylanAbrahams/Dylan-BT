@@ -19,6 +19,9 @@
             <!-- intro -->
             <fieldset class="tab">
                 <legend>Introductie</legend>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
                 <p>Welkom bij het erfbelastingformulier 2026 (schoolproject). Hier kunt u stap voor stap de benodigde
                     gegevens invullen.</p>
                 <p>Lees de instructies zorgvuldig en vul alle verplichte velden in. U kunt altijd later terugkeren om
@@ -27,6 +30,9 @@
             <!-- 1a -->
             <fieldset class="tab">
                 <legend>Gegevens van de overledene</legend>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
                 <fieldset>
                     <legend>Vul hier de gegevens in van de overledene.
                     </legend>
@@ -82,7 +88,9 @@
             <!-- 1b -->
             <fieldset class="tab">
                 <legend>Partner Overledene</legend>
-
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
                 <!-- Vraag 1 -->
                 <fieldset>
                     <legend>Was de overledene getrouwd of had de overledene een geregistreerde partner op het moment van
@@ -145,7 +153,9 @@
             <!-- 1c -->
             <fieldset class="tab">
                 <legend>Kinderen Overledene</legend>
-
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
                 <!-- Vraag 1 -->
                 <fieldset id="children">
                     <legend>Had de overledene kinderen?</legend>
@@ -191,7 +201,9 @@
             <!-- 1d -->
             <fieldset class="tab">
                 <legend>Testament</legend>
-
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
                 <!-- Vraag 1 -->
                 <fieldset id="had-will">
                     <legend>Had de overledene een testament?</legend>
@@ -200,7 +212,7 @@
                         Nee
                     </label>
                     <label>
-                        <input required type="radio" name="had-will-radio" value="yes">
+                        <input type="radio" name="had-will-radio" value="yes">
                         Ja
                     </label>
                 </fieldset>
@@ -212,7 +224,7 @@
 
                     <fieldset>
                         <legend>Protocolnummer notaris</legend>
-                        <input required type="text" name="protocol-number" pattern="\d{6}" maxlength="6">
+                        <input type="text" name="protocol-number" pattern="\d{6}" maxlength="6">
                         <span class="validation-message"></span>
                     </fieldset>
 
@@ -220,7 +232,7 @@
                         <legend>Vul hier de gegevens in van de notaris.</legend>
                         <label>
                             Voorletters
-                            <input required type="text" class="caps" name="notary-initals">
+                            <input type="text" class="caps" name="notary-initals">
                             <span class="validation-message"></span>
                         </label>
                         <label>
@@ -229,29 +241,29 @@
                         </label>
                         <label>
                             Achternaam
-                            <input required type="text" name="notary-last-name">
+                            <input type="text" name="notary-last-name">
                             <span class="validation-message"></span>
                         </label>
                     </fieldset>
 
                     <fieldset>
                         <legend>Vestigingsplaats</legend>
-                        <input required type="text" name="place-of-business">
+                        <input type="text" name="place-of-business">
                         <span class="validation-message"></span>
                     </fieldset>
 
                     <fieldset>
                         <legend>Datum van het testament of van de laatste wijziging</legend>
                         <label>Dag
-                            <input required type="number" name="date-of-will" min="1" max="31" placeholder="DD">
+                            <input type="number" name="date-of-will" min="1" max="31" placeholder="DD">
                             <span class="validation-message"></span>
                         </label>
                         <label>Maand
-                            <input required type="number" name="month-of-will" min="1" max="12" placeholder="MM">
+                            <input type="number" name="month-of-will" min="1" max="12" placeholder="MM">
                             <span class="validation-message"></span>
                         </label>
                         <label>Jaar
-                            <input required type="number" name="year-of-will" min="1950" max="2026" placeholder="JJJJ">
+                            <input type="number" name="year-of-will" min="1950" max="2026" placeholder="JJJJ">
                             <span class="validation-message"></span>
                         </label>
                     </fieldset>
@@ -261,6 +273,9 @@
             <!-- Uitleg onderdeel 4 -->
             <fieldset class="tab" id="step-intermediate">
                 <legend>Tusseninstructie</legend>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
                 <p>We hebben nu alle informatie over de overledene verzameld. In de volgende secties gaan we de gegevens
                     invullen van de verkrijgers, hun relatie tot de overledene en de erfstukken.</p>
                 <p>Hoeveel erfgenamen wilt u invullen?</p>
@@ -279,7 +294,10 @@
             <div id="beneficiaries-container">
                 <!-- 4a -->
                 <fieldset class="tab">
-                    <legend>Gegevens verkrijgers - Vul de gegevens in van de persoon of instelling</legend>
+                    <legend>Vul de gegevens in van de persoon of instelling</legend>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
                     <fieldset>
                         <legend>Gegevens persoon</legend>
                         <label>
@@ -337,6 +355,9 @@
 
                 <!-- 4b -->
                 <fieldset class="tab">
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
                     <legend>Adresgegevens</legend>
                     <fieldset>
                         <legend>Adres in Nederland</legend>
@@ -371,7 +392,9 @@
                 <!-- 4c -->
                 <fieldset class="tab">
                     <legend>Relatie met de overledene</legend>
-
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
                     <fieldset>
                         <legend>Wat is de relatie van deze verkrijger met de overledene?</legend>
                         <label>
@@ -380,7 +403,7 @@
                         </label>
 
                         <label>
-                            <input required type="radio" name="relationship-deceased"
+                            <input type="radio" name="relationship-deceased"
                                 value="cohabiting-partner-with-agreement">
                             Samenwoner zonder notariële akte
                         </label>
@@ -402,7 +425,7 @@
                         </fieldset> -->
 
                         <label>
-                            <input required type="radio" name="relationship-deceased"
+                            <input type="radio" name="relationship-deceased"
                                 value="cohabiting-partner-without-agreement">
                             Samenwoner met notariële akte
                         </label>
@@ -439,22 +462,22 @@
                         </fieldset> -->
 
                         <label>
-                            <input required type="radio" name="relationship-deceased" value="parent">
+                            <input type="radio" name="relationship-deceased" value="parent">
                             Ouder
                         </label>
 
                         <label>
-                            <input required type="radio" name="relationship-deceased" value="ex-partner">
+                            <input type="radio" name="relationship-deceased" value="ex-partner">
                             Ex-Partner (als er bij de echtscheiding afspraken zijn gemaakt over de erfenis)
                         </label>
 
                         <label>
-                            <input required type="radio" name="relationship-deceased" value="child-or-child-in-law">
+                            <input type="radio" name="relationship-deceased" value="child-or-child-in-law">
                             Kind of stiefkind
                         </label>
 
                         <label>
-                            <input required type="radio" name="relationship-deceased" value="child-with-handicap">
+                            <input type="radio" name="relationship-deceased" value="child-with-handicap">
                             Kind met handicap
                         </label>
                         <p class="label-warning"><strong>Let op!</strong> Kruis dit hokje alleen aan als het kind
@@ -462,38 +485,41 @@
                             toelichting.</p>
 
                         <label>
-                            <input required type="radio" name="relationship-deceased" value="foster-child">
+                            <input type="radio" name="relationship-deceased" value="foster-child">
                             Pleegkind
                         </label>
 
                         <label>
-                            <input required type="radio" name="relationship-deceased" value="grandchild">
+                            <input type="radio" name="relationship-deceased" value="grandchild">
                             Kleinkind
                         </label>
 
                         <label>
-                            <input required type="radio" name="relationship-deceased" value="great-grandchild">
+                            <input type="radio" name="relationship-deceased" value="great-grandchild">
                             Achterkleinkind
                         </label>
 
                         <label>
-                            <input required type="radio" name="relationship-deceased" value="anbi">
+                            <input type="radio" name="relationship-deceased" value="anbi">
                             Algemeen nut beogende instelling (ANBI)
                         </label>
 
                         <label>
-                            <input required type="radio" name="relationship-deceased" value="ssbi">
+                            <input type="radio" name="relationship-deceased" value="ssbi">
                             Sociaal belang behartigende instelling (SBBI)
                         </label>
 
                         <label>
-                            <input required type="radio" name="relationship-deceased" value="other">
+                            <input type="radio" name="relationship-deceased" value="other">
                             Anders
                         </label>
                     </fieldset>
 
                     <!-- 4d -->
                     <fieldset class="tab">
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
                         <legend>Erfdelen, legaten en legitieme portie</legend>
 
                         <!-- Erfdeel -->
@@ -511,7 +537,7 @@
                         <fieldset>
                             <legend>Doet deze verkrijger een beroep op diens legitieme portie?</legend>
                             <label>
-                                <input type="radio" name="forced-share" value="no"> Nee
+                                <input required type="radio" name="forced-share" value="no"> Nee
                             </label>
                             <label>
                                 <input type="radio" name="forced-share" value="yes"> Ja
@@ -531,7 +557,7 @@
                             <legend>Heeft deze verkrijger een partner die ook een erfdeel of een legaat van de
                                 overledene krijgt?</legend>
                             <label>
-                                <input type="radio" name="partner-inheritance" value="no"> Nee
+                                <input required type="radio" name="partner-inheritance" value="no"> Nee
                             </label>
                             <label>
                                 <input type="radio" name="partner-inheritance" value="yes"> Ja
@@ -551,8 +577,10 @@
 
                     <!-- 4g -->
                     <fieldset class="tab">
-                        <legend>Ondertekening door de verkrijger. Als de executeur of de gemachtigde aangifte doet,
-                            hoeft de verkrijger niet zelf te ondertekenen. </legend>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                        <legend>Ondertekening door de verkrijger.</legend>
                         <fieldset>
                             <legend>Datum</legend>
                             <label>Dag
@@ -585,11 +613,17 @@
             <!-- Einde -->
             <fieldset class="tab ending">
                 <legend>Bedankt voor het invullen!</legend>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
                 <p>Klik op verzenden om het formulier in te dienen.</p>
+                <!-- Hier komt het overzicht van niet ingevulde velden -->
+                <div id="missing-fields-overview">
+                </div>
             </fieldset>
 
             <div class="button-row">
-                <p class="paginator">Pagina X/X</p>
+
                 <button type="button" id="prevBtn" onclick="nextPrev(-1)">Vorige</button>
                 <button type="button" id="nextBtn" onclick="nextPrev(1)">Volgende</button>
             </div>
