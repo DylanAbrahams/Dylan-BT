@@ -338,12 +338,42 @@ Verder heb ik voor het gegenereerde onderdeel een ::before aan de titel toegevoe
 Als laatste heb ik op de laatste pagina nog wat toegevoegd. Als je alles hebt ingevuld zie je "Bedankt voor het invullen" en kun je alles verzenden, maar als je nog velden hebt gemist komt er in rode tekst te staan dat je nog wat niet hebt ingevuld met een overzicht van alle niet ingevulde velden. Dit heeft nog het langste geduurd, want ik moest rekening houden met disabled buttons, de knoppen die wel/niet required zijn, de inputs die wel/geen label hebben om degene zonder label een legend te geven en om radios altijd door de legend te laten noemen. Voor die specifieke eisen heb ik wel Chat gebruikt door mijn code op te sturen en vertellen welke tekst  wel/niet in beeld komt. 
  
 ## Week 4 Overzicht
-Deze week heb ik de laatste loodjes gelegd. Ik heb me veel gefocust op validatie, progressive enhancements, de laatste paar functies en het opschonen van mijn code. 
+Deze week heb ik de laatste loodjes gelegd. Ik heb me gefocust op styling, responsiviteit, validatie, progressive enhancements, de laatste paar functies en het opschonen van mijn code. 
+
+Ten eerste heb ik mijn styling toegepast op desktop. Ik heb hier geen media queries voor gebruikt. Op mobiel heeft de form een width van 80vh. Ik heb een max-width van 45em eraan gegeven waardoor hij op desktop nooit te breed zal worden. Daarnaast heb ik de tekst in de header gecentreerd omdat ik dat mooier vond passen boven het formulier. Ook heb ik de max-width uit alle tabs gehaald zodat de gebruiker altijd weet wanneer hij/zij naar beneden moet scrollen.
+
+<img src="img/readme-img/week4-desktop-versie.png" alt="Afbeelding van week 3" height=400>
+
+Verder heb ik ook de waarschuwingspopups de max-width gegeven. Hieronder zie je het verschil tussen hoe hij eerst was op desktop en hoe hij nu is. Toch handig om mobile first te stylen.
+
+<img src="img/readme-img/week4-popup-oud.png" alt="Afbeelding van week 4" height=400>
+<img src="img/readme-img/week4-popup-nieuw.png" alt="Afbeelding van week 4" height=400>
+
+Voor progressive enhancement heb ik een tekst toegevoegd die alleen zichtbaar is zonder JavaScript die de gebruiker laat weten dat hij meerdere formulieren mag inzenden voor meerdere erfgenames als dit het geval is. Verder heb ik nu ook de max-height uit alle tabs gehaald waardoor dit er nu mooi uitziet.
+
+<img src="img/readme-img/week4-progressive-enhancement.png" alt="Afbeelding van week 4" height=400>
+
+Ik heb tijdens mijn gesprekken feedback gekregen over mijn disabled buttons en dat deze nog niet duidelijk genoeg waren. Ik heb styling toegepast op de fieldsets die disabled zijn en de kleuren aangepast van de inputs, labels en legends waardoor ze nu inactief lijken. Verder krijgt je muis een not-allowed symbool wanneer je er overheen hoevert. 
+
+<img src="img/readme-img/week4-disabled-styling.png" alt="Afbeelding van week 4" height=400>
+
+Op de laatste dag heb ik nog een functie gemaakt voor de eindpagina. Hier zie je een overzicht van alle velden die je nog niet hebt ingevuld. Nu kun je terug gaan naar de tabs waarvan de vragen nog niet zijn ingevuld. Een kleine bug die ik nog heb is dat de antwoorden resetten als je opnieuw de paginas gaat genereren maar ja. So be it. In deze afbeeldingen zie je links wanneer je alle antwoorden goed hebt ingevuld en rechts wanneer je inputs hebt gemist of niet goed hebt ingevuld.
+
+<img src="img/readme-img/week4-eindpagina-goed.png" alt="Afbeelding van week 4" height=400>
+<img src="img/readme-img/week4-eindpagina-missende-velden.png" alt="Afbeelding van week 4" height=400>
+
+Ook heb ik nog een progressiebalk gemaakt. Ik vond dit wat geschikter dan alleen een pagina teller, al helemaal omdat vanaf het begin je niet weet hoeveel paginas je gaat invullen. Deze staat bovenin onder de titel, zodat deze goed in beeld staat en je niet buiten de form hoeft te kijken/naar beneden hoeft te scrollen. Er zit helaas geen animatie op, omdat elke pagina een eigen progressiebalk heeft. Omdat er halverwege het formulier voor elke erfgename 5 nieuwe paginas worden genereerd, heb ik logica toegevoegd om pagina 6 als middelpunt van de progressiebalk te definieren. Dit betekent dat wanneer je op pagina 6 komt de progressiebalk 50% is opgevuld. Als je nu bv. 10 erfgenames invult gaat de balk niet in eens terug naar ~20% maar blijft hij op z'n plek staan. 
+
+<img src="img/readme-img/week4-progress-bar.png" alt="Afbeelding van week 4 - Progressiebalk" height=400>
+<img src="img/readme-img/week4-progress-bar-halverwege.png" alt="Afbeelding van week 4 - Progressiebalk Halverwege" height=400>
 
 
 ## Eindreflectie
+Ik ben trots op wat ik de afgelopen maand heb gemaakt. Ik had een beetje onderschat hoeveel detail je in een formulier nodig hebt. Vooral met HTML met fieldsets, legends, labels etc. Ik denk dat ik hele goede en overzichtelijke HTML heb geschreven. Verder heb ik mijn CSS en JS ook goed op orde. Achteraf heb ik waarschijnlijk wel iets te veel JavaScript gebruikt in situaties die ik ook met CSS op had kunnen lossen, omdat ik JavaScript wat meer gewend ben. Mijn gedachtegang is altijd dat met JavaScript alles mogelijk is en met CSS ik niet weet of het mogelijk is en voor die reden voor JavaScript kies.
 
+Ik denk dat ik mezelf goed heb uitgedaagd met de patterns die ik heb uitgekozen. Ten eerste heb ik in het formulier gekozen voor onderdeel 1 en onderdeel 4. Onderdeel 4 is het grootste onderdeel van het formulier en hoewel ik een paar onderdelen geschrapt had ben ik alle logica langs gegaan. Ik heb "Ga verder met vraag..." geimplementeerd door disabled inputs te gebruiken en deze aan te laten zetten wanneer je JA klikt op een bepaalde radio input. Verder heb ik het formulier opgedeeld in verschillende paginas en kun je per erfgename meerdere paginas genereren. Om dit allemaal werkend te krijgen en vervolgens rekening te kunnen houden met progressive enhancement is wel iets waar ik zeer trots op ben.
 
+Qua styling heb ik me niet heel erg kunnen uitsloven, vooral omdat de huisstijl van de NS ook niet bepaald het meest interessant is en omdat de focus voor mij voorrnamelijk lag op het logica schrijven en het duidelijk maken aan de gebruiker wat hij/zij moet doen. Alsnog ben ik tevreden met hoe het eruit ziet al is het aan de simpele kant.
 
 ## Bronnenlijst
 

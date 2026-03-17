@@ -11,8 +11,10 @@ html {
     --success-color: #00a888;
     --text-color: #070721;
     --popup-background: rgba(0,0,0,0.3);
-
+    --radio-color:#888;
+    
     --disabled-label:#999;
+    --disabled-background: #eee;
     --disabled-input: #ccc;
     --form-shadow: rgba(7, 7, 33, .15);
 }
@@ -76,7 +78,6 @@ legend::before {
 }
 
 /* ---------------------- Labels & Radio Buttons ---------------------- */
-/* Default label layout */
 label {
     display: flex;
     flex-direction: column;
@@ -87,9 +88,9 @@ label {
 
 label:has(input[type="radio"]) {
     display: grid;
-    grid-template-columns: 1.5rem 1fr; /* radio circle + text column */
-    grid-gap: 0.5rem;                  /* space between circle and text */
-    align-items: center;                 /* top-align circle with first line */
+    grid-template-columns: 1.5rem 1fr;
+    grid-gap: 0.5rem;               
+    align-items: center;       
     margin: 0.4em 0;
 }
 
@@ -107,7 +108,7 @@ input[type="radio"] {
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
-    border: 2px solid #888;      /* standard gray border */
+    border: 2px solid var(--radio-color);     
     border-radius: 50%;
     position: relative;
     transition: border-color 0.2s, background-color 0.2s;
@@ -128,7 +129,7 @@ input[type="radio"]:checked::after {
     width: 50%;
     height: 50%;
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--white-color);
 }
 
 /* Focus outline */
@@ -139,13 +140,13 @@ input[type="radio"]:focus-visible {
 
 /* Disabled state */
 input[type="radio"]:disabled {
-    border-color: #ccc;
-    background-color: #eee;
+    border-color: var(--disabled-input);
+    background-color: var(--disabled-background);
     cursor: not-allowed;
 }
 
 input[type="radio"]:disabled:checked::after {
-    background-color: #ccc;
+    background-color: var(--disabled-input);
 }
 
 label input[type="radio"]:disabled + * {
@@ -158,7 +159,7 @@ input[type="number"],
 input[type="date"],
 input[type="file"] {
     padding: 0.4em 0.5em;
-    border: 1px solid #ccc;
+    border: 1px solid var(--disabled-input);
     border-radius: 4px;
 }
 
