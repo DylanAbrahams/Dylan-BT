@@ -404,4 +404,12 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label
 What happened to text inputs?
 https://briefs.video/videos/what-happened-to-text-inputs/
 
+ChatGPT - Disabled inputs aanzetten dmv antwoorden van radio buttons
+Prompt: (HTML laten zien) Ik wil deze disabled fieldset aanzetten wanneer ik JA antwoord op deze radio button.
+Dit heb ik toegepast op de andere vragen
+
+Template element
+Link: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/template
+
 ChatGPT - Specifieke inputs missende velden
+Prompt: Kun je aan het einde alle vragen die je niet hebt ingevuld neerzetten op de pagina?

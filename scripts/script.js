@@ -172,11 +172,11 @@ function changeTab(n) {
 // =========================
 function generateBeneficiaries() {
   const num = parseInt(document.getElementById("num-beneficiaries").value);
-  const container = document.getElementById("beneficiaries-container");
-  const template = document.getElementById("beneficiary-template");
-
   container.innerHTML = ""; // oude inhoud verwijderen
 
+
+  // Ik heb deze bron gebruikt voor templates
+  // Link: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/template
   for (let i = 1; i <= num; i++) {
     const clone = template.content.cloneNode(true);
     const wrapper = document.createElement("fieldset");
@@ -196,7 +196,8 @@ function generateBeneficiaries() {
 
     container.appendChild(wrapper);
 
-    // ⚡ ENABLE / DISABLE LOGICA toevoegen per beneficiary
+    // De enable/disable logica toegepast voor deze vragen (deze code is hetzelfde als DYNAMISCHE VELDEN)
+    // ONDERDEEL 4D
     const forcedRadios = wrapper.querySelectorAll('input[name="forced-share"]');
     const forcedFieldset = wrapper.querySelector('#forced-share-fieldset');
     const partnerRadios = wrapper.querySelectorAll('input[name="partner-inheritance"]');
@@ -254,13 +255,13 @@ function generateBeneficiaries() {
     }
   }
 
-  // Remove .active from all tabs on the page
+  // Alle tabs de inactive class geven
   document.querySelectorAll(".tab.active").forEach(tab => {
     tab.classList.remove("active");
     tab.classList.add("inactive");
   });
 
-  // Activate only the first tab of the first beneficiary
+  // De eerste tab de active class geven
   const firstTab = container.querySelector(".beneficiary:first-child .tab");
   if (firstTab) {
     firstTab.classList.remove("inactive");
@@ -279,7 +280,7 @@ function generateBeneficiaries() {
 
 
 // =========================
-// MODALS
+// MODAL/POPUP
 // =========================
 function showValidationPopup() {
   document.getElementById("validationModal").style.display = "flex";
@@ -317,6 +318,9 @@ function submitForm() {
 // =========================
 // DYNAMISCHE VELDEN / DISABLED RADIO BUTTONS
 // =========================
+
+// Ik heb ChatGPT gevraagd voor een manier om disabled inputs aan te zetten door JA in te 
+// vullen op specifieke radios. Dit heb ik toegepast op verschillende knoppen.
 
 function toggleFieldset(fieldset, enabled) {
   fieldset.disabled = !enabled;
@@ -401,7 +405,7 @@ function validateInput(input, showMessage) {
     input.classList.add("invalid");
     input.classList.add("touched");
     if (message && showMessage) {
-      message.textContent = input.validationMessage || "❌ Ongeldig veld";
+      message.textContent = input.validationMessage || "Ongeldig veld";
       message.style.display = "block";
     } else if (message) {
       message.style.display = "none"; // verberg tekst tijdens typen
@@ -426,14 +430,14 @@ function setupValidation(root = document) {
 // =========================
 // EINDPAGINA MISSENDE VELDEN
 // =========================
-
+// Ik heb ChatGPT gebruikt voor het schrijven van de inhoud op de tab waar je de missende inputs kan zien.
 function showMissingFields() {
   const overview = document.getElementById("missing-fields-overview");
   overview.innerHTML = "";
 
   const form = document.getElementById("erfbelastingForm");
   const tabs = form.querySelectorAll("fieldset.tab");
-  const results = []; 
+  const results = [];
 
   tabs.forEach(tab => {
     const missing = [];
